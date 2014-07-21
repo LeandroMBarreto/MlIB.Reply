@@ -5,7 +5,7 @@ namespace mErrorWrapper
 {
     /* mErrorWrapper
      * https://github.com/LeandroMBarreto
-     * http://www.codeproject.com/script/Membership/View.aspx?mid=7067411
+     * http://www.codeproject.com/Members/LeandroMBarreto
      * 
      The MIT License (MIT)
 
