@@ -58,7 +58,6 @@
     <Compile Include="TestandoBoolean.cs" />
     <Compile Include="TestandoClasse.cs" />
     <Compile Include="TestandoEnumDescription.cs" />
-    <Compile Include="TestandoListaDeErros.cs" />
     <Compile Include="TestandoNullableBoolean.cs" />
     <Compile Include="TestandoNullableString.cs" />
     <Compile Include="TestandoNullableStruct.cs" />

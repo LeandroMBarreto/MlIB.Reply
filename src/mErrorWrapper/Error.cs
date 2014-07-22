@@ -35,29 +35,24 @@ namespace mErrorWrapper
     /// </summary>
     public static class Error
     {
-        public static Version Version
+        public static readonly Version Version
         = new Version(1, //workflow version
-                      0, //contract version
+                      1, //contract version
                       0, //feature version
                       0  //hotfix version
                       );
-
-        public const string Name = "mErrorWrapper";
-        public const string Author = "Leandro M Barreto";
-        public const string Website = "https://github.com/LeandroMBarreto";
-
 
         public static Error<T> None<T>(T value)
         {
             return new Error<T>(value);
         }
 
-        public static Error<T> With<T>(Enum error, T value)
+        public static Error<T> With<T>(T value, Enum error)
         {
-            return new Error<T>(error, value);
+            return new Error<T>(value, error);
         }
 
-        public static Error<T> With<T>(Enum error, string errorMessage, T value)
+        public static Error<T> With<T>(Enum error, string errorMessage, T value = default(T))
         {
             return new Error<T>(error, errorMessage, value);
         }
@@ -78,22 +73,14 @@ namespace mErrorWrapper
         public Error(T value, Enum error = null)
         {
             this.Value = value;
-            this.ErrorCode = null;
+            this.ErrorCode = error;
 
             if (error == null)
                 this.ErrorMessage = string.Empty;
             else this.ErrorMessage = Enum.GetName(error.GetType(), error);
         }
 
-        public Error(Enum error, T value = default(T))
-        {
-            this.Value = value;
-            this.ErrorCode = error;
-
-            this.ErrorMessage = Enum.GetName(error.GetType(), error);
-        }
-
-        public Error(Enum error, string errorMessage, T value)
+        public Error(Enum error, string errorMessage, T value = default(T))
         {
             this.Value = value;
             this.ErrorCode = error;

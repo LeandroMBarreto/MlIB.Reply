@@ -6,13 +6,14 @@ namespace mErrorWrapper.UnitTesting
     [TestClass]
     public class TestandoBoolean
     {
+
         [TestMethod]
         public void RetornaValorComErro()
         {
             var valor = false;
             Enum erro = MyTestErrorEnum.FUUUUU;
 
-            var result = Error.With(erro, valor);
+            var result = Error.With(valor, erro);
 
             Assert.AreEqual(valor, result.Value);
             Assert.AreEqual(erro, result.ErrorCode);
@@ -23,7 +24,6 @@ namespace mErrorWrapper.UnitTesting
             Assert.AreEqual(erro == null,
                 string.IsNullOrEmpty(result.ErrorMessage));
         }
-
 
     }
 }
