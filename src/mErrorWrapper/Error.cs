@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace mErrorWrapper
-{
     /* mErrorWrapper
      * https://github.com/LeandroMBarreto
      * http://www.codeproject.com/Members/LeandroMBarreto
@@ -33,28 +31,33 @@ namespace mErrorWrapper
     /// <summary>
     /// Factory which provides easy shortcut to instantiate an Error object
     /// </summary>
-    public static class Error
+    public static class mError
     {
         public static readonly Version Version
         = new Version(1, //workflow version
-                      1, //contract version
+                      2, //contract version
                       0, //feature version
                       0  //hotfix version
                       );
 
-        public static Error<T> None<T>(T value)
+        public static mError<T> None<T>(T value)
         {
-            return new Error<T>(value);
+            return new mError<T>(value);
         }
 
-        public static Error<T> With<T>(T value, Enum error)
+        public static mError<T> With<T>(Enum error, T value)
         {
-            return new Error<T>(value, error);
+            return new mError<T>(value, error);
         }
 
-        public static Error<T> With<T>(Enum error, string errorMessage, T value = default(T))
+        public static mError<T> With<T>(Enum error, T value, string errorMessage = "")
         {
-            return new Error<T>(error, errorMessage, value);
+            return new mError<T>(value, error, errorMessage);
+        }
+
+        public static mError<T> With<T>(string errorMessage, T value)
+        {
+            return new mError<T>(value, errorMessage);
         }
     }
 
@@ -62,29 +65,44 @@ namespace mErrorWrapper
     /// A simple class to encapsulate and deliver error messages besides the expected return value from methods
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class Error<T>
+    public class mError<T>
     {
         public T Value { get; protected set; }
         public Enum ErrorCode { get; protected set; }
         public string ErrorMessage { get; protected set; }
 
-        public bool HasError { get { return this.ErrorCode != null; } }
-
-        public Error(T value, Enum error = null)
+        public bool HasErrorCode { get { return this.ErrorCode != null; } }
+        public bool HasErrorMessage { get { return !string.IsNullOrEmpty(this.ErrorMessage); } }
+        public bool HasError
         {
-            this.Value = value;
-            this.ErrorCode = error;
-
-            if (error == null)
-                this.ErrorMessage = string.Empty;
-            else this.ErrorMessage = Enum.GetName(error.GetType(), error);
+            get
+            {
+                return HasErrorCode || HasErrorMessage;
+            }
         }
 
-        public Error(Enum error, string errorMessage, T value = default(T))
+        public mError(T value, string errorMessage = "")
+        {
+            this.Value = value;
+            this.ErrorCode = null;
+            this.ErrorMessage = errorMessage;
+        }
+
+        public mError(T value, Enum error, string errorMessage)
         {
             this.Value = value;
             this.ErrorCode = error;
             this.ErrorMessage = errorMessage;
         }
+
+        public mError(T value, Enum error, bool useEnumFlagAsErrorMessage = true)
+        {
+            this.Value = value;
+            this.ErrorCode = error;
+
+            if (useEnumFlagAsErrorMessage && HasError)
+                this.ErrorMessage = Enum.GetName(error.GetType(), error);
+            else this.ErrorMessage = string.Empty;
+        }
     }
-}
+

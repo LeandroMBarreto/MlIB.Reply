@@ -13,8 +13,8 @@ namespace mErrorWrapper.UnitTesting
             var valor = false;
             Enum erro = MyTestErrorEnum.FUUUUU;
 
-            var result = Error.With(valor, erro);
-
+            var result = mError.With(erro, valor);
+            
             Assert.AreEqual(valor, result.Value);
             Assert.AreEqual(erro, result.ErrorCode);
 
