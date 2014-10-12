@@ -1,13 +1,9 @@
-mErrorWrapper
+MlIB.Reply
 =============
 
-A simple class to encapsulate and deliver error messages besides the expected return value from methods.
+Give methods the ability to reply with error flags instead of default/null values, magic numbers/strings or exceptions
 
 
+Requires:
 
-Available on NuGet:
-https://www.nuget.org/packages/mErrorWrapper/
-
-
-Usage Example:
-https://github.com/LeandroMBarreto/mErrorWrapper/wiki/Usage-Example
+.Net Framework 2.0+
