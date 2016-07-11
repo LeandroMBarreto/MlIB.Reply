@@ -8,16 +8,6 @@ namespace MlIB
     public static partial class Reply
     {
 
-        public static void ThrowingException(string message)
-        {
-            throw new Exception(string.Format(message));
-        }
-
-        public static Reply<T> NoException<T>(Exception ex, T value = default(T))
-        {
-            return new Reply<T>(value, ex.Message);
-        }
-
         public static Reply<Exception> From(Action method)
         {
             try
