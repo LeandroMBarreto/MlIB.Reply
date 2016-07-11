@@ -18,11 +18,11 @@ namespace MlIB
             return new Reply<T>(value, ex.Message);
         }
 
-        public static Reply<Exception> CatchingException(Action voidMethod)
+        public static Reply<Exception> From(Action method)
         {
             try
             {
-                voidMethod();
+                method();
                 return new Reply<Exception>(null);
             }
             catch (Exception ex)
@@ -31,11 +31,11 @@ namespace MlIB
             }
         }
 
-        public static Reply<T> CatchingException<T>(Func<T> functionMethod)
+        public static Reply<T> From<T>(Func<T> method)
         {
             try
             {
-                return new Reply<T>(functionMethod());
+                return new Reply<T>(method());
             }
             catch (Exception ex)
             {
