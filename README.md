@@ -1,7 +1,7 @@
 MlIB.Reply
 =============
 
-Give methods the ability to reply with error flags instead of default/null values, magic numbers/strings or exceptions
+Don't just return null, false or any default value. Give it a full Reply!
 
 
 Requires:
