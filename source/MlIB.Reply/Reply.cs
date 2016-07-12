@@ -47,7 +47,7 @@ namespace MlIB
         public bool HasException { get { return this.ExceptionThrown != null; } }
         public bool HasErrorMessage { get { return !string.IsNullOrEmpty(this.ErrorMessage); } }
 
-        public Reply(TReturn value, string errorMessage = "")
+        internal Reply(TReturn value, string errorMessage = "")
         {
             this.Value = value;
             this.ErrorCode = null;
@@ -55,7 +55,7 @@ namespace MlIB
             this.ExceptionThrown = null;
         }
 
-        public Reply(TReturn value, Enum errorCode, string errorMessage = "")
+        internal Reply(TReturn value, Enum errorCode, string errorMessage = "")
         {
             this.Value = value;
             this.ErrorCode = errorCode;
@@ -66,7 +66,7 @@ namespace MlIB
             else this.ErrorMessage = errorMessage;
         }
 
-        public Reply(TReturn value, Exception exception)
+        internal Reply(TReturn value, Exception exception)
         {
             this.Value = value;
             this.ErrorCode = null;

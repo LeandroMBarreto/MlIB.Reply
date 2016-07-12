@@ -7,6 +7,11 @@ namespace MlIB.Reply.Tests.Unit.Features
     public class Reply_ctor
     {
 
+        /*
+         * set all private and fu** off this sh**
+         */
+
+
         //public Reply(T value, string errorMessage = "")
 
         //public Reply(T value, Enum errorCode, string errorMessage = "")
