@@ -29,6 +29,7 @@ SOFTWARE.
 using System;
 using System.Collections.Generic;
 using MlIB;
+using MlIB.ReplyDelegates;
 
 namespace M
 {
@@ -38,7 +39,7 @@ namespace M
     /// 1 - MINOR - compatible change
     /// 0 - PATCH - hotfix change
     /// </summary>
-    public static partial class Reply
+    public static class Reply
     {
 
         public static Reply<T> NoError<T>(T value)
@@ -61,6 +62,30 @@ namespace M
             return new Reply<T>(value, errorMessage);
         }
 
-    }
+        public static Reply<Exception> From(Action method)
+        {
+            try
+            {
+                method();
+                return new Reply<Exception>(null);
+            }
+            catch (Exception ex)
+            {
+                return new Reply<Exception>(ex, ex);
+            }
+        }
 
+        public static Reply<T> From<T>(Func<T> method)
+        {
+            try
+            {
+                return new Reply<T>(method());
+            }
+            catch (Exception ex)
+            {
+                return new Reply<T>(default(T), ex);
+            }
+        }
+
+    }
 }

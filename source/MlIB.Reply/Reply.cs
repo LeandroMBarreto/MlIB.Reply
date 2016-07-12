@@ -41,39 +41,39 @@ namespace MlIB
         public T Value { get; protected set; }
         public Enum ErrorCode { get; protected set; }
         public string ErrorMessage { get; protected set; }
+        public Exception ExceptionThrown { get; protected set; }
 
+        public bool HasError { get { return HasErrorMessage || HasErrorCode || HasException; } }
         public bool HasErrorCode { get { return this.ErrorCode != null; } }
+        public bool HasException { get { return this.ExceptionThrown != null; } }
         public bool HasErrorMessage { get { return !string.IsNullOrEmpty(this.ErrorMessage); } }
-        public bool HasError
-        {
-            get
-            {
-                return HasErrorCode || HasErrorMessage;
-            }
-        }
 
         public Reply(T value, string errorMessage = "")
         {
             this.Value = value;
             this.ErrorCode = null;
             this.ErrorMessage = errorMessage;
+            this.ExceptionThrown = null;
         }
 
-        public Reply(T value, Enum error, string errorMessage)
+        public Reply(T value, Enum errorCode, string errorMessage = "")
         {
             this.Value = value;
-            this.ErrorCode = error;
-            this.ErrorMessage = errorMessage;
+            this.ErrorCode = errorCode;
+            this.ExceptionThrown = null;
+
+            if (HasError && string.IsNullOrEmpty(errorMessage))
+                this.ErrorMessage = Enum.GetName(errorCode.GetType(), errorCode);
+            else this.ErrorMessage = errorMessage;
         }
 
-        public Reply(T value, Enum error, bool useEnumFlagAsErrorMessage = true)
+        public Reply(T value, Exception exception)
         {
             this.Value = value;
-            this.ErrorCode = error;
-
-            if (useEnumFlagAsErrorMessage && HasError)
-                this.ErrorMessage = Enum.GetName(error.GetType(), error);
-            else this.ErrorMessage = string.Empty;
+            this.ErrorCode = null;
+            this.ErrorMessage = exception.Message;
+            this.ExceptionThrown = exception;
         }
+
     }
 }
