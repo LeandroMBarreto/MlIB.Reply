@@ -29,10 +29,14 @@ SOFTWARE.
 using System;
 using System.Collections.Generic;
 using MlIB;
-using MlIB.ReplyDelegates;
 
 namespace M
 {
+    // delegates missing in .net framework 2.0:
+    public delegate void Action();
+    public delegate TReturn Func<TReturn>();
+
+
     //VERSIONING SYSTEM: MAJOR.MINOR.PATCH
     // MAJOR - breakthrough change
     // MINOR - compatible change
@@ -46,24 +50,24 @@ namespace M
     public static class Reply
     {
 
-        public static Reply<T> NoError<T>(T value)
+        public static Reply<TReturn> NoError<TReturn>(TReturn value)
         {
-            return new Reply<T>(value);
+            return new Reply<TReturn>(value);
         }
 
-        public static Reply<T> Error<T>(Enum errorCode, T value, string errorMessage = "")
+        public static Reply<TReturn> Error<TReturn>(Enum errorCode, TReturn value, string errorMessage = "")
         {
-            return new Reply<T>(value, errorCode, errorMessage);
+            return new Reply<TReturn>(value, errorCode, errorMessage);
         }
 
-        public static Reply<T> Error<T>(string errorMessage, T value)
+        public static Reply<TReturn> Error<TReturn>(string errorMessage, TReturn value)
         {
-            return new Reply<T>(value, errorMessage);
+            return new Reply<TReturn>(value, errorMessage);
         }
 
-        public static Reply<T> Error<T>(Exception ex, T value = default(T))
+        public static Reply<TReturn> Error<TReturn>(Exception ex, TReturn value = default(TReturn))
         {
-            return new Reply<T>(value, ex);
+            return new Reply<TReturn>(value, ex);
         }
 
         public static void Throw(Enum errorCode, string errorMessage = "")
@@ -95,18 +99,18 @@ namespace M
         /// Wraps the specified method in a try-catch block and executes it.
         /// If an exception is thrown, it's encapsulated and returned in a Reply object.
         /// </summary>
-        /// <typeparam name="TResult">The type of the data returned by method</typeparam>
+        /// <typeparam name="TReturn">The type of the data returned by method</typeparam>
         /// <param name="method">The method to execute. ie: ()=>method(arg1, arg2, arg3, arg...)</param>
         /// <returns></returns>
-        public static Reply<TResult> From<TResult>(Func<TResult> method)
+        public static Reply<TReturn> From<TReturn>(Func<TReturn> method)
         {
             try
             {
-                return new Reply<TResult>(method());
+                return new Reply<TReturn>(method());
             }
             catch (Exception ex)
             {
-                return new Reply<TResult>(default(TResult), ex);
+                return new Reply<TReturn>(default(TReturn), ex);
             }
         }
 

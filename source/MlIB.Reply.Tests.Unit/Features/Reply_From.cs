@@ -18,7 +18,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //I:null
         //O:
         
-        //public static Reply<TResult> From<TResult>(Func<TResult> method)
+        //public static Reply<TReturn> From<TReturn>(Func<TReturn> method)
 
         //I:valid func returning valid
         //O:

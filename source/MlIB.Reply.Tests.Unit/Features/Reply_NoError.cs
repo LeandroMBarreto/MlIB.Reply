@@ -8,9 +8,6 @@ namespace MlIB.Reply.Tests.Unit.Features
     {
 
         //public static Reply<T> NoError<T>(T value)
-        //{
-        //    return new Reply<T>(value);
-        //}
 
         //I:valid
         //O:

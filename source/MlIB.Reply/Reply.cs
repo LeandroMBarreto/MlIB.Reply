@@ -34,10 +34,10 @@ namespace MlIB
     /// <summary>
     /// Use this class to return valuable error information from methods instead of ambiguous null, false or default values.
     /// </summary>
-    /// <typeparam name="T">The type of the returning value</typeparam>
-    public class Reply<T>
+    /// <typeparam name="TReturn">The type of the returned value</typeparam>
+    public class Reply<TReturn>
     {
-        public T Value { get; protected set; }
+        public TReturn Value { get; protected set; }
         public Enum ErrorCode { get; protected set; }
         public string ErrorMessage { get; protected set; }
         public Exception ExceptionThrown { get; protected set; }
@@ -47,7 +47,7 @@ namespace MlIB
         public bool HasException { get { return this.ExceptionThrown != null; } }
         public bool HasErrorMessage { get { return !string.IsNullOrEmpty(this.ErrorMessage); } }
 
-        public Reply(T value, string errorMessage = "")
+        public Reply(TReturn value, string errorMessage = "")
         {
             this.Value = value;
             this.ErrorCode = null;
@@ -55,7 +55,7 @@ namespace MlIB
             this.ExceptionThrown = null;
         }
 
-        public Reply(T value, Enum errorCode, string errorMessage = "")
+        public Reply(TReturn value, Enum errorCode, string errorMessage = "")
         {
             this.Value = value;
             this.ErrorCode = errorCode;
@@ -66,7 +66,7 @@ namespace MlIB
             else this.ErrorMessage = errorMessage;
         }
 
-        public Reply(T value, Exception exception)
+        public Reply(TReturn value, Exception exception)
         {
             this.Value = value;
             this.ErrorCode = null;
