@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MlIB.ReplyProject.Tests.Unit.Stubs
+namespace MlIB.Reply.Tests.Unit.Stubs
 {
     class VoidMethods
     {

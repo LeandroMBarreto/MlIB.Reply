@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MlIB.Reply", "MlIB.Reply\MlIB.Reply.csproj", "{49E2A1E1-7CC9-413E-986A-CACC305D061C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MlIB.ReplyProject.Tests.Unit", "MlIB.Reply.Tests.Unit\MlIB.ReplyProject.Tests.Unit.csproj", "{7FA976DE-4A01-4919-A715-D615DF2918C3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MlIB.Reply.Tests.Unit", "MlIB.Reply.Tests.Unit\MlIB.Reply.Tests.Unit.csproj", "{7FA976DE-4A01-4919-A715-D615DF2918C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

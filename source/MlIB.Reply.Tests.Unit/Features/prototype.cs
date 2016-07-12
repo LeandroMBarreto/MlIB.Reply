@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MlIB.ReplyProject.Tests.Unit.Stubs;
+using MlIB.Reply.Tests.Unit.Stubs;
 
-namespace MlIB.ReplyProject.Tests.Unit.Features
+namespace MlIB.Reply.Tests.Unit.Features
 {
     [TestClass]
     public class prototype

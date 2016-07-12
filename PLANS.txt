@@ -1,19 +1,7 @@
-
-
- # PLANS
-
-
-COMPLETE UNIT TESTING
-
-should update .net framework to have built in delegates?
-
+-COMPLETE UNIT TESTING
+Update .net framework to have built in delegates?
 INTELLISENSE COMMENTS
-
 USAGE MANUAL
-
-MASTER BRANCH RELEASE
-
 NEW NUGET
-
+MASTER BRANCH RELEASE
 UPDATE OLD NUGET
-
