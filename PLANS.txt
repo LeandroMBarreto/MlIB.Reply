@@ -1,0 +1,19 @@
+
+
+ # PLANS
+
+
+COMPLETE UNIT TESTING
+
+should update .net framework to have built in delegates?
+
+INTELLISENSE COMMENTS
+
+USAGE MANUAL
+
+MASTER BRANCH RELEASE
+
+NEW NUGET
+
+UPDATE OLD NUGET
+
