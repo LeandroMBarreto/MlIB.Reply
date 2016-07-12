@@ -33,16 +33,13 @@ using MlIB;
 namespace M
 {
     /// <summary>
-    /// Factory which provides easy shortcut to instantiate an Error object
+    /// Factory for making a Reply v0.1.0
+    /// 0 - MAJOR - breakthrough change
+    /// 1 - MINOR - compatible change
+    /// 0 - PATCH - hotfix change
     /// </summary>
     public static partial class Reply
     {
-        public static readonly Version Version
-        = new Version(0, //workflow version
-                      1, //contract version
-                      0, //feature version
-                      0  //hotfix version
-                      );
 
         public static Reply<T> NoError<T>(T value)
         {
