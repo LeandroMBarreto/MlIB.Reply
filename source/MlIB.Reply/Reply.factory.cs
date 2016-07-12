@@ -47,19 +47,30 @@ namespace M
             return new Reply<T>(value);
         }
 
-        public static Reply<T> Error<T>(Enum error, T value)
+        public static Reply<T> Error<T>(Enum errorCode, T value)
         {
-            return new Reply<T>(value, error);
+            return new Reply<T>(value, errorCode);
         }
 
-        public static Reply<T> Error<T>(Enum error, T value, string errorMessage = "")
+        public static Reply<T> Error<T>(Enum errorCode, T value, string errorMessage = "")
         {
-            return new Reply<T>(value, error, errorMessage);
+            return new Reply<T>(value, errorCode, errorMessage);
         }
 
         public static Reply<T> Error<T>(string errorMessage, T value)
         {
             return new Reply<T>(value, errorMessage);
+        }
+
+        public static Reply<T> Error<T>(Exception ex, T value = default(T))
+        {
+            return new Reply<T>(value, ex);
+        }
+
+        public static void Throw(Enum errorCode, string errorMessage = "")
+        {
+            var reply = new Reply<bool>(false, errorCode, errorMessage);
+            throw new Exception(string.Format("ERROR {0}: {1}", errorCode, reply.ErrorMessage));
         }
 
         public static Reply<Exception> From(Action method)
@@ -75,6 +86,12 @@ namespace M
             }
         }
 
+        /// <summary>
+        /// Executes specified method and encapsulates any fired exception in a Reply class
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="method"></param>
+        /// <returns></returns>
         public static Reply<T> From<T>(Func<T> method)
         {
             try
