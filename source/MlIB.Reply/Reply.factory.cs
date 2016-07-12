@@ -51,11 +51,6 @@ namespace M
             return new Reply<T>(value);
         }
 
-        public static Reply<T> Error<T>(Enum errorCode, T value)
-        {
-            return new Reply<T>(value, errorCode);
-        }
-
         public static Reply<T> Error<T>(Enum errorCode, T value, string errorMessage = "")
         {
             return new Reply<T>(value, errorCode, errorMessage);
@@ -77,6 +72,12 @@ namespace M
             throw new Exception(string.Format("ERROR {0}: {1}", errorCode, reply.ErrorMessage));
         }
 
+        /// <summary>
+        /// Wraps the specified method in a try-catch block and executes it.
+        /// If an exception is thrown, it's encapsulated and returned in a Reply object.
+        /// </summary>
+        /// <param name="method">The method to execute. ie: ()=>method(arg1, arg2, arg3, arg...)</param>
+        /// <returns></returns>
         public static Reply<Exception> From(Action method)
         {
             try
@@ -89,22 +90,23 @@ namespace M
                 return new Reply<Exception>(ex, ex);
             }
         }
-
+        
         /// <summary>
-        /// Executes specified method and encapsulates any fired exception in a Reply class
+        /// Wraps the specified method in a try-catch block and executes it.
+        /// If an exception is thrown, it's encapsulated and returned in a Reply object.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="method"></param>
+        /// <typeparam name="TResult">The type of the data returned by method</typeparam>
+        /// <param name="method">The method to execute. ie: ()=>method(arg1, arg2, arg3, arg...)</param>
         /// <returns></returns>
-        public static Reply<T> From<T>(Func<T> method)
+        public static Reply<TResult> From<TResult>(Func<TResult> method)
         {
             try
             {
-                return new Reply<T>(method());
+                return new Reply<TResult>(method());
             }
             catch (Exception ex)
             {
-                return new Reply<T>(default(T), ex);
+                return new Reply<TResult>(default(TResult), ex);
             }
         }
 
