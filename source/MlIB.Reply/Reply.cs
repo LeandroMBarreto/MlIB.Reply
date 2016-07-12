@@ -32,10 +32,9 @@ using System.Collections.Generic;
 namespace MlIB
 {
     /// <summary>
-    /// Use this class to return valuable information from methods instead of ambiguous null, false or default values.
-    /// Give it a full Reply! ;)
+    /// Use this class to return valuable error information from methods instead of ambiguous null, false or default values.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
+    /// <typeparam name="T">The type of the returning value</typeparam>
     public class Reply<T>
     {
         public T Value { get; protected set; }

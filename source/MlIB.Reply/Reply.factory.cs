@@ -33,11 +33,15 @@ using MlIB.ReplyDelegates;
 
 namespace M
 {
+    //VERSIONING SYSTEM: MAJOR.MINOR.PATCH
+    // MAJOR - breakthrough change
+    // MINOR - compatible change
+    // PATCH - hotfix change
+    // http://semver.org
+
     /// <summary>
     /// Factory for making a Reply v0.1.0
-    /// 0 - MAJOR - breakthrough change
-    /// 1 - MINOR - compatible change
-    /// 0 - PATCH - hotfix change
+    /// Use this class to return valuable error information from methods instead of ambiguous null, false or default values.
     /// </summary>
     public static class Reply
     {

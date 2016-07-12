@@ -1,7 +1,7 @@
 MlIB.Reply
 =============
 
-Don't just return null, false or any default value. Give it a full Reply!
+Don't just return null, false or ambiguous default values. Give it a full Reply!
 
 
 Requires:
