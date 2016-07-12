@@ -28,8 +28,9 @@ SOFTWARE.
 
 using System;
 using System.Collections.Generic;
+using MlIB;
 
-namespace MlIB
+namespace M
 {
     /// <summary>
     /// Factory which provides easy shortcut to instantiate an Error object

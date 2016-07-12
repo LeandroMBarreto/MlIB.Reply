@@ -26,12 +26,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
  */
 
-using MlIB.ReplyDelegates;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using MlIB;
+using MlIB.ReplyDelegates;
 
-namespace MlIB
+namespace M
 {
     public static partial class Reply
     {

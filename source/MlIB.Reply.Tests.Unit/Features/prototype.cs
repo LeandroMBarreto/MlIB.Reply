@@ -11,7 +11,7 @@ namespace MlIB.ReplyProject.Tests.Unit.Features
         [TestMethod]
         public void Reply_Exception_voidMethod_ok_NotThrowing()
         {
-            var res = Reply.From(VoidMethods.PlayStaticSound);
+            var res = M.Reply.From(VoidMethods.PlayStaticSound);
 
             Assert.IsFalse(res.HasError);
         }
@@ -19,7 +19,7 @@ namespace MlIB.ReplyProject.Tests.Unit.Features
         [TestMethod]
         public void Reply_Exception_voidMethod_ok_Throwing()
         {
-            var res = Reply.From(VoidMethods.PlayInexistentSound);
+            var res = M.Reply.From(VoidMethods.PlayInexistentSound);
             
             var ex = new InvalidOperationException("ain't hear no song at all but buggy noises.");
 
