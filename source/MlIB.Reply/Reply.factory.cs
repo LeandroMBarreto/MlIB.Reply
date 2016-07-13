@@ -5,7 +5,7 @@
  * 
  The MIT License (MIT)
 
-Copyright (c) 2014-2016 LeandroMBarreto
+Copyright (c) 2014-2016 Leandro M Barreto
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -44,7 +44,7 @@ namespace M
     // http://semver.org
 
     /// <summary>
-    /// Factory for making a Reply v0.1.0
+    /// Factory for making a Reply v0.2.0
     /// Use this class to return valuable error information from methods instead of ambiguous null, false or default values.
     /// </summary>
     public static class Reply
