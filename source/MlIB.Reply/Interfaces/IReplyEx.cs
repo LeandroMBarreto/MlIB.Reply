@@ -9,6 +9,6 @@ namespace M
         Exception Exception { get; }
         bool HasException { get; }
 
-        void Throw();
+        void Throw(string optionalPrefix = null);
     }
 }

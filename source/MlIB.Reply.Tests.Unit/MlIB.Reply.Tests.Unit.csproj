@@ -53,6 +53,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Features\IReplyEx_Throw.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Features\Reply_Error_fast.cs" />
     <Compile Include="Features\Reply_NoError.cs" />
     <Compile Include="Features\Reply_Throw.cs" />

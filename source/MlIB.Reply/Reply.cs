@@ -103,9 +103,20 @@ namespace MlIB
             this.ErrorMessage = errorMessage;
         }
 
-        public void Throw()
+        /// <summary>
+        /// Throws a ReplyException encapsulating the specified exception
+        /// </summary>
+        /// <param name="optionalPrefix">An optional prefix to append to the final exception message.</param>
+        public void Throw(string optionalPrefix = null)
         {
-            throw this.Exception;
+            if (HasException) throw this.Exception;
+
+            if (optionalPrefix == null && ErrorCode == null && ErrorMessage == null)
+                optionalPrefix = string.Format("A DEFAULT ERROR WAS THROWN BY AN OBJECT OF TYPE {0}", this.GetType());
+
+            throw new ReplyException(string.Format(
+                "[{0}-{1}-{2}]", optionalPrefix, ErrorCode, ErrorMessage
+                ), this.Exception);
         }
 
     }
