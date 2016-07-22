@@ -7,7 +7,7 @@ namespace MlIB.Reply.Tests.Unit.Features
     public class Reply_Throw
     {
 
-        //public static void Throw(Enum errorCode, string errorMessage = "")
+        //public static void Throw(Enum errorCode, string errorMessage = null)
 
         //I:valid
         //O:

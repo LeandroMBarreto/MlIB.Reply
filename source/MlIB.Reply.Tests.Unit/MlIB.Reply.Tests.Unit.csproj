@@ -53,18 +53,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Features\Reply_Error_default.cs" />
+    <Compile Include="Features\Reply_Error_fast.cs" />
     <Compile Include="Features\Reply_NoError.cs" />
     <Compile Include="Features\Reply_Throw.cs" />
     <Compile Include="Features\Reply_From.cs" />
     <Compile Include="Features\Reply_ctor.cs" />
-    <Compile Include="Features\IReplyEx_HasException.cs" />
-    <Compile Include="Features\IReplyCode_HasErrorCode.cs" />
-    <Compile Include="Features\IReplyMsg_HasErrorMessage.cs" />
-    <Compile Include="Features\IReply_HasError.cs" />
     <Compile Include="Features\Reply_Error_message.cs" />
     <Compile Include="Features\Reply_Error_exception.cs" />
     <Compile Include="Features\Reply_Error_code.cs" />
+    <Compile Include="Features\Reply_Error_full.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stubs\Common.cs" />
     <Compile Include="Stubs\MyErrorEnum.cs" />

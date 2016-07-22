@@ -5,7 +5,7 @@ using MlIB.Reply.Tests.Unit.Stubs;
 namespace MlIB.Reply.Tests.Unit.Features
 {
     [TestClass]
-    public class Reply_Error_default
+    public class Reply_Error_fast
     {
 
         //public static IReplyEx<TReturn> Error<TReturn>(TReturn value = default(TReturn))
@@ -15,7 +15,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O:default value
         //O:null error details
         [TestMethod]
-        public void Reply_Error_default_none()
+        public void Reply_Error_fast_default()
         {
             var result = M.Reply.Error<int>();
 
@@ -32,7 +32,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O:passed value
         //O:null error details
         [TestMethod]
-        public void Reply_Error_default_value_valid()
+        public void Reply_Error_fast_value_valid()
         {
             var result = M.Reply.Error(-1);
 

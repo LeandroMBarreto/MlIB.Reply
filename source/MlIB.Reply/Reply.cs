@@ -40,6 +40,7 @@ namespace MlIB
         : IReplyFast<TReturn>, IReplyEx<TReturn>, IReplyCode<TReturn>, IReplyMsg<TReturn>
         , IReplyFull<TReturn>, IReplyExMsg<TReturn>, IReplyCodeMsg<TReturn>
     {
+
         public TReturn Value { get; protected set; }
         public Enum ErrorCode { get; protected set; }
         public string ErrorMessage { get; protected set; }
@@ -72,6 +73,17 @@ namespace MlIB
             this.ErrorMessage = errorMessage;
         }
 
+        internal Reply(TReturn value, Exception exception, string errorMessage = null)
+        {
+            this.HasError = true;
+
+            this.Value = value;
+            this.ErrorCode = null;
+            this.Exception = exception;
+            this.ErrorMessage = errorMessage != null ? errorMessage
+                : exception != null ? exception.Message : null;
+        }
+
         internal Reply(TReturn value, Enum errorCode, string errorMessage = null)
         {
             this.Value = value;
@@ -83,15 +95,17 @@ namespace MlIB
             else this.ErrorMessage = errorMessage;
         }
 
-        internal Reply(TReturn value, Exception exception, string errorMessage = null)
+        internal Reply(TReturn value, Enum errorCode, Exception exception, string errorMessage = null)
         {
-            this.HasError = true;
-
             this.Value = value;
-            this.ErrorCode = null;
+            this.ErrorCode = errorCode;
             this.Exception = exception;
-            this.ErrorMessage = errorMessage != null ? errorMessage
-                : exception != null ? exception.Message : null;
+            this.ErrorMessage = errorMessage;
+        }
+
+        public void Throw()
+        {
+            throw this.Exception;
         }
 
     }

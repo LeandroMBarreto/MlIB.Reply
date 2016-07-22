@@ -65,17 +65,22 @@ namespace M
             return new Reply<TReturn>(value, errorMessage);
         }
 
-        public static IReplyCode<TReturn> Error<TReturn>(Enum errorCode, string errorMessage = null, TReturn value = default(TReturn))
-        {
-            return new Reply<TReturn>(value, errorCode, errorMessage);
-        }
-
         public static IReplyExMsg<TReturn> Error<TReturn>(Exception ex, string errorMessage = null, TReturn value = default(TReturn))
         {
             return new Reply<TReturn>(value, ex, errorMessage);
         }
 
-        public static void Throw(Enum errorCode, string errorMessage = "")
+        public static IReplyCodeMsg<TReturn> Error<TReturn>(Enum errorCode, string errorMessage = null, TReturn value = default(TReturn))
+        {
+            return new Reply<TReturn>(value, errorCode, errorMessage);
+        }
+
+        public static IReplyFull<TReturn> Error<TReturn>(Enum errorCode, Exception ex, string errorMessage = null, TReturn value = default(TReturn))
+        {
+            return new Reply<TReturn>(value, errorCode, ex, errorMessage);
+        }
+
+        public static void Throw(Enum errorCode, string errorMessage = null)
         {
             var reply = new Reply<bool>(false, errorCode, errorMessage);
             throw new Exception(string.Format("ERROR {0}: {1}", errorCode, reply.ErrorMessage));
