@@ -21,6 +21,8 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");  //O:has error
             Assert.AreEqual(default(int), result.Value, "WHY NO DEFAULT VALUE??");  //O:default value
+
+            Assert.IsFalse(result.HasException);     //O:null exception
             Assert.AreEqual(null, result.Exception);  //O:null error details
 
             Assert.IsFalse(result.HasErrorMessage, "WHY HAVE MSG??");  //O:null error details
@@ -39,6 +41,8 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");  //O:has error
             Assert.AreEqual(default(int), result.Value, "WHY NO DEFAULT VALUE??");  //O:default value
+
+            Assert.IsTrue(result.HasException);     //O:expected exception
             Assert.AreEqual(Stubs.Common.EXCEPTION, result.Exception);  //O:error details exception
 
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");     //O:exception msg for msg
@@ -58,6 +62,8 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");  //O:has error
             Assert.AreEqual(default(int), result.Value, "WHY NO DEFAULT VALUE??");  //O:default value
+
+            Assert.IsFalse(result.HasException);     //O:null exception
             Assert.AreEqual(nullEx, result.Exception);   //O:null exception
 
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");     //O:expected error msg
@@ -77,6 +83,8 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");  //O:has error
             Assert.AreEqual(default(int), result.Value, "WHY NO DEFAULT VALUE??");  //O:default value
+
+            Assert.IsFalse(result.HasException);     //O:null exception
             Assert.AreEqual(nullEx, result.Exception);   //O:null exception
 
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");   //O:expected error msg
@@ -95,6 +103,8 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");  //O:has error
             Assert.AreEqual(default(int), result.Value, "WHY NO DEFAULT VALUE??");  //O:default value
+
+            Assert.IsTrue(result.HasException);     //O:expected exception
             Assert.AreEqual(Stubs.Common.EXCEPTION, result.Exception);  //O:error details exception
 
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");   //O:expected error msg
@@ -113,6 +123,8 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");  //O:has error
             Assert.AreEqual(default(int), result.Value, "WHY NO DEFAULT VALUE??");  //O:default value
+
+            Assert.IsTrue(result.HasException);     //O:expected exception
             Assert.AreEqual(Stubs.Common.EXCEPTION, result.Exception);  //O:error details exception
 
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");   //O:expected error msg
@@ -132,6 +144,8 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");  //O:has error
             Assert.AreEqual(Stubs.Common.VAL_anyValue, result.Value, "WHY NO DEFAULT VALUE??");   //O:expected value
+
+            Assert.IsFalse(result.HasException);     //O:null exception
             Assert.AreEqual(nullEx, result.Exception);   //O:null exception
 
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");     //O:expected error msg
@@ -150,6 +164,8 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");  //O:has error
             Assert.AreEqual(Stubs.Common.VAL_anyValue, result.Value, "WHY NO DEFAULT VALUE??");   //O:expected value
+
+            Assert.IsTrue(result.HasException);     //O:expected exception
             Assert.AreEqual(Stubs.Common.EXCEPTION, result.Exception);    //O:expected exception
 
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");     //O:expected error msg
@@ -169,6 +185,8 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");  //O:has error
             Assert.AreEqual(Stubs.Common.VAL_anyValue, result.Value, "WHY NO DEFAULT VALUE??");   //O:expected value
+
+            Assert.IsFalse(result.HasException);     //O:null exception
             Assert.AreEqual(nullEx, result.Exception);   //O:null exception
 
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");   //O:expected error msg
@@ -187,6 +205,8 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");  //O:has error
             Assert.AreEqual(Stubs.Common.VAL_anyValue, result.Value, "WHY NO DEFAULT VALUE??");   //O:expected value
+
+            Assert.IsTrue(result.HasException);     //O:expected exception
             Assert.AreEqual(Stubs.Common.EXCEPTION, result.Exception);    //O:expected exception
 
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");    //O:empty error msg
@@ -207,6 +227,8 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");  //O:has error
             Assert.AreEqual(ex, result.Value, "WHY NO DEFAULT VALUE??");   //O:expected value
+
+            Assert.IsTrue(result.HasException);     //O:expected exception
             Assert.AreEqual(Stubs.Common.EXCEPTION, result.Exception);    //O:expected exception
 
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");    //O:empty error msg
@@ -229,6 +251,8 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");  //O:has error
             Assert.AreEqual(ex, result.Value, "WHY NO DEFAULT VALUE??");   //O:expected value
+
+            Assert.IsFalse(result.HasException);     //O:null exception
             Assert.AreEqual(nullEx, result.Exception);    //O:null exception
 
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");   //O:empty error msg
@@ -251,6 +275,8 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");  //O:has error
             Assert.AreEqual(ex, result.Value, "WHY NO DEFAULT VALUE??");   //O:expected value
+
+            Assert.IsFalse(result.HasException);     //O:null exception
             Assert.AreEqual(nullEx, result.Exception);    //O:null exception
 
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");   //O:expected error msg
@@ -272,6 +298,8 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");  //O:has error
             Assert.AreEqual(ex, result.Value, "WHY NO DEFAULT VALUE??");   //O:expected value
+
+            Assert.IsTrue(result.HasException);     //O:expected exception
             Assert.AreEqual(Stubs.Common.EXCEPTION, result.Exception);    //O:expected exception
 
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");   //O:expected error msg
