@@ -35,9 +35,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\IReply.cs" />
+    <Compile Include="Interfaces\IReplyCodeMsg.cs" />
+    <Compile Include="Interfaces\IReplyFast.cs" />
     <Compile Include="Interfaces\IReplyCode.cs" />
     <Compile Include="Interfaces\IReplyEx.cs" />
+    <Compile Include="Interfaces\IReplyExMsg.cs" />
     <Compile Include="Interfaces\IReplyFull.cs" />
     <Compile Include="Interfaces\IReplyMsg.cs" />
     <Compile Include="Reply.cs" />

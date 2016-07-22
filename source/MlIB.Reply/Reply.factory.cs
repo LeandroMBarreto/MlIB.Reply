@@ -50,12 +50,12 @@ namespace M
     public static class Reply
     {
 
-        public static IReply<TReturn> NoError<TReturn>(TReturn value)
+        public static IReplyFast<TReturn> NoError<TReturn>(TReturn value)
         {
             return new Reply<TReturn>(value);
         }
 
-        public static IReply<TReturn> Error<TReturn>(TReturn value = default(TReturn))
+        public static IReplyFast<TReturn> Error<TReturn>(TReturn value = default(TReturn))
         {
             return new Reply<TReturn>(value, true);
         }
@@ -70,7 +70,7 @@ namespace M
             return new Reply<TReturn>(value, errorCode, errorMessage);
         }
 
-        public static IReplyEx<TReturn> Error<TReturn>(Exception ex, string errorMessage = null, TReturn value = default(TReturn))
+        public static IReplyExMsg<TReturn> Error<TReturn>(Exception ex, string errorMessage = null, TReturn value = default(TReturn))
         {
             return new Reply<TReturn>(value, ex, errorMessage);
         }

@@ -117,9 +117,8 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.AreEqual(null, result.ErrorMessage, "WHY NOT NULL MSG??");  //O:null error details
             Assert.AreEqual(Stubs.Common.EXCEPTION, result.Value, "WHY NOT EXPECTED VALUE??"); //O:expected value
 
-            Assert.IsFalse(
-                ((M.IReplyEx<InvalidOperationException>)result).HasException
-                , "WHY HAS EXCEPTION??"); //O:dont have exception
+            var convertedResult = result as M.IReplyEx<InvalidOperationException>;
+            Assert.IsFalse(convertedResult.HasException, "WHY HAS EXCEPTION??"); //O:dont have exception
         }
 
         //I:empty, valid exception
@@ -137,9 +136,8 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.AreEqual(string.Empty, result.ErrorMessage, "WHY NOT EMPTY MSG??");    //O:error detail valid empty msg
             Assert.AreEqual(Stubs.Common.EXCEPTION, result.Value, "WHY NOT EXPECTED VALUE??"); //O:expected value
 
-            Assert.IsFalse(
-                ((M.IReplyEx<InvalidOperationException>)result).HasException
-                , "WHY HAS EXCEPTION??"); //O:dont have exception
+            var convertedResult = result as M.IReplyEx<InvalidOperationException>;
+            Assert.IsFalse(convertedResult.HasException, "WHY HAS EXCEPTION??"); //O:dont have exception
         }
 
         //I:valid, valid exception
@@ -157,9 +155,8 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.AreEqual(Stubs.Common.MSG_ErrorFound, result.ErrorMessage, "WHY NOT EXPECTED MSG??");  //O:error detail valid msg
             Assert.AreEqual(Stubs.Common.EXCEPTION, result.Value, "WHY NOT EXPECTED VALUE??"); //O:expected value
 
-            Assert.IsFalse(
-                ((M.IReplyEx<InvalidOperationException>)result).HasException
-                , "WHY HAS EXCEPTION??"); //O:dont have exception
+            var convertedResult = result as M.IReplyEx<InvalidOperationException>;
+            Assert.IsFalse(convertedResult.HasException, "WHY HAS EXCEPTION??"); //O:dont have exception
         }
 
     }

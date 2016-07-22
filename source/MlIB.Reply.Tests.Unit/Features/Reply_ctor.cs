@@ -8,16 +8,17 @@ namespace MlIB.Reply.Tests.Unit.Features
     {
 
         /*
-         * set all private and fu** off this sh**
+         * set all private and fu** off this sh** =}
          */
 
 
-        //public Reply(T value, string errorMessage = "")
+       // internal Reply(TReturn value, bool hasError = false)
 
-        //public Reply(T value, Enum errorCode, string errorMessage = "")
-       
-        //public Reply(T value, Exception exception)
+       // internal Reply(TReturn value, string errorMessage)
 
+       // internal Reply(TReturn value, Enum errorCode, string errorMessage = null)
+
+       // internal Reply(TReturn value, Exception exception, string errorMessage = null)
 
     }
 }

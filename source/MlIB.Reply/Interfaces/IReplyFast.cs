@@ -4,7 +4,7 @@ using System.Text;
 
 namespace M
 {
-    public interface IReply<TReturn>
+    public interface IReplyFast<TReturn>
     {
         TReturn Value { get; }
         bool HasError { get; }
