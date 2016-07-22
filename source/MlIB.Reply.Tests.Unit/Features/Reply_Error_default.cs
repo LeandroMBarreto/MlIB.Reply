@@ -20,9 +20,11 @@ namespace MlIB.Reply.Tests.Unit.Features
             var result = M.Reply.Error<int>();
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??"); //O:has error
-            Assert.IsFalse(result.HasErrorMessage, "WHY HAVE MSG??");  //O:null error details
-            Assert.AreEqual(null, result.ErrorMessage, "WHY NOT NULL MSG??");  //O:null error details
             Assert.AreEqual(default(int), result.Value, "WHY NO DEFAULT VALUE??"); //O:default value
+
+            var convertedResult = result as M.IReplyMsg<int>;
+            Assert.IsFalse(convertedResult.HasErrorMessage, "WHY HAVE MSG??");  //O:null error details
+            Assert.AreEqual(null, convertedResult.ErrorMessage, "WHY NOT NULL MSG??");  //O:null error details
         }
 
         //I:valid value
@@ -35,9 +37,11 @@ namespace MlIB.Reply.Tests.Unit.Features
             var result = M.Reply.Error(-1);
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");  //O:has error
-            Assert.IsFalse(result.HasErrorMessage, "WHY HAVE MSG??");  //O:null error details
-            Assert.AreEqual(null, result.ErrorMessage, "WHY NOT NULL MSG??");  //O:null error details
             Assert.AreEqual(-1, result.Value, "WHY NO EXPECTED VALUE??");  //O:passed value
+
+            var convertedResult = result as M.IReplyMsg<int>;
+            Assert.IsFalse(convertedResult.HasErrorMessage, "WHY HAVE MSG??");  //O:null error details
+            Assert.AreEqual(null, convertedResult.ErrorMessage, "WHY NOT NULL MSG??");  //O:null error details
         }
 
     }

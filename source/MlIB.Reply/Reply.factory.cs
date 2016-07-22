@@ -55,7 +55,7 @@ namespace M
             return new Reply<TReturn>(value);
         }
 
-        public static IReplyMsg<TReturn> Error<TReturn>(TReturn value = default(TReturn))
+        public static IReply<TReturn> Error<TReturn>(TReturn value = default(TReturn))
         {
             return new Reply<TReturn>(value, true);
         }
