@@ -1,11 +1,21 @@
 -default errorMessage to null for performance reasons
--COMPLETE UNIT TESTING
-BETA TEST TIME PERIOD
+-TDD DESIGN
+-Reply class
+-IReply interface
+-IReplyEx interface
+-IReplyCode interface
+-IReplyFull interface
+COMPLETE TDD
 INTELLISENSE COMMENTS
+BETA TEST TIME PERIOD
 USAGE MANUAL
 APPVEYOR
+
 NEW NUGET v1.0
 MASTER BRANCH RELEASE v1.0 .NET FRAMEWORK 2.0+
+BETA TEST TIME PERIOD
+
+USAGE VIDEO TUTORIAL
 Update .net framework 3.5
 Use .net built in delegates
 UPDATE NUGET v1.1

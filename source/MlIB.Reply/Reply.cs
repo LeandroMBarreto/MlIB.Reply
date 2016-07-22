@@ -40,11 +40,11 @@ namespace MlIB
         public TReturn Value { get; protected set; }
         public Enum ErrorCode { get; protected set; }
         public string ErrorMessage { get; protected set; }
-        public Exception ExceptionThrown { get; protected set; }
+        public Exception Exception { get; protected set; }
 
         public bool HasError { get { return HasErrorMessage || HasErrorCode || HasException; } }
         public bool HasErrorCode { get { return this.ErrorCode != null; } }
-        public bool HasException { get { return this.ExceptionThrown != null; } }
+        public bool HasException { get { return this.Exception != null; } }
         public bool HasErrorMessage { get { return !string.IsNullOrEmpty(this.ErrorMessage); } }
 
         internal Reply(TReturn value, string errorMessage = "")
@@ -52,14 +52,14 @@ namespace MlIB
             this.Value = value;
             this.ErrorCode = null;
             this.ErrorMessage = errorMessage;
-            this.ExceptionThrown = null;
+            this.Exception = null;
         }
 
         internal Reply(TReturn value, Enum errorCode, string errorMessage = "")
         {
             this.Value = value;
             this.ErrorCode = errorCode;
-            this.ExceptionThrown = null;
+            this.Exception = null;
 
             if (HasError && string.IsNullOrEmpty(errorMessage))
                 this.ErrorMessage = Enum.GetName(errorCode.GetType(), errorCode);
@@ -71,7 +71,7 @@ namespace MlIB
             this.Value = value;
             this.ErrorCode = null;
             this.ErrorMessage = exception.Message;
-            this.ExceptionThrown = exception;
+            this.Exception = exception;
         }
 
     }
