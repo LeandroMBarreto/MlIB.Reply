@@ -1,10 +1,11 @@
--default errorMessage to null for performance reasons
--TDD DESIGN
--Reply class
--IReply interface
--IReplyEx interface
--IReplyCode interface
--IReplyFull interface
+/default errorMessage to null for performance reasons
+/TDD DESIGN
+/Reply class
+/IReply interface
+/IReplyEx interface
+/IReplyMsg interface
+/IReplyCode interface
+/IReplyFull interface
 COMPLETE TDD
 INTELLISENSE COMMENTS
 BETA TEST TIME PERIOD

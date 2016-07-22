@@ -54,7 +54,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Features\Reply_NoError.cs" />
-    <Compile Include="Features\Reply_Error_default.cs" />
     <Compile Include="Features\Reply_Throw.cs" />
     <Compile Include="Features\Reply_From.cs" />
     <Compile Include="Features\Reply_ctor.cs" />

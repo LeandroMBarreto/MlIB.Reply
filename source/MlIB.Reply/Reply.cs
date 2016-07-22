@@ -48,12 +48,13 @@ namespace MlIB
         public bool HasException { get { return this.Exception != null; } }
         public bool HasErrorMessage { get { return !string.IsNullOrEmpty(this.ErrorMessage); } }
 
+
         internal Reply(TReturn value, string errorMessage = null)
         {
             this.Value = value;
+            this.Exception = null;
             this.ErrorCode = null;
             this.ErrorMessage = errorMessage;
-            this.Exception = null;
         }
 
         internal Reply(TReturn value, Enum errorCode, string errorMessage = null)
@@ -71,8 +72,8 @@ namespace MlIB
         {
             this.Value = value;
             this.ErrorCode = null;
-            this.ErrorMessage = exception.Message;
             this.Exception = exception;
+            this.ErrorMessage = exception.Message;
         }
 
     }

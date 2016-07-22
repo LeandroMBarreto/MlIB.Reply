@@ -9,6 +9,7 @@ namespace MlIB.Reply.Tests.Unit.Features
     {
 
         [TestMethod]
+        [Ignore]
         public void Reply_Exception_voidMethod_ok_NotThrowing()
         {
             var res = M.Reply.From(VoidMethods.PlayStaticSound);
@@ -17,6 +18,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         }
 
         [TestMethod]
+        [Ignore]
         public void Reply_Exception_voidMethod_ok_Throwing()
         {
             var res = M.Reply.From(VoidMethods.PlayInexistentSound);

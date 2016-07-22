@@ -12,6 +12,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //I:null
         //O:
         [TestMethod]
+        [Ignore]
         public void Reply_Error_code_null()
         {
 
@@ -26,6 +27,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //I:valid, empty
         //O:
         [TestMethod]
+        [Ignore]
         public void Reply_Error_code_valid_msg_empty()
         {
 
@@ -40,6 +42,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //I:null, empty, valid
         //O:
         [TestMethod]
+        [Ignore]
         public void Reply_Error_code_null_msg_empty_value_valid()
         {
             //    Enum nullCode = null;
@@ -56,6 +59,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //I:valid, empty, valid
         //O:
         [TestMethod]
+        [Ignore]
         public void Reply_Error_code_valid_msg_empty_value_valid()
         {
             //    var result = M.Reply.Error(MyErrorEnum.ACCESS_DENIED, anyValue);
@@ -76,6 +80,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //I:null, empty, valid exception
         //O:
         [TestMethod]
+        [Ignore]
         public void Reply_Error_code_null_msg_empty_value_exception()
         {
 
@@ -84,6 +89,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //I:valid, empty, valid exception
         //O:
         [TestMethod]
+        [Ignore]
         public void Reply_Error_code_valid_msg_empty_value_exception()
         {
             //var result = M.Reply.Error(nullCode, anyValue);
