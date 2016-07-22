@@ -28,6 +28,7 @@ SOFTWARE.
 
 using System;
 using System.Collections.Generic;
+using M;
 
 namespace MlIB
 {
@@ -35,7 +36,7 @@ namespace MlIB
     /// Use this class to return valuable error information from methods instead of ambiguous null, false or default values.
     /// </summary>
     /// <typeparam name="TReturn">The type of the returned value</typeparam>
-    public class Reply<TReturn>
+    public class Reply<TReturn> : IReply<TReturn>, IReplyEx<TReturn>, IReplyMsg<TReturn>, IReplyCode<TReturn>
     {
         public TReturn Value { get; protected set; }
         public Enum ErrorCode { get; protected set; }
@@ -47,7 +48,7 @@ namespace MlIB
         public bool HasException { get { return this.Exception != null; } }
         public bool HasErrorMessage { get { return !string.IsNullOrEmpty(this.ErrorMessage); } }
 
-        internal Reply(TReturn value, string errorMessage = "")
+        internal Reply(TReturn value, string errorMessage = null)
         {
             this.Value = value;
             this.ErrorCode = null;
@@ -55,7 +56,7 @@ namespace MlIB
             this.Exception = null;
         }
 
-        internal Reply(TReturn value, Enum errorCode, string errorMessage = "")
+        internal Reply(TReturn value, Enum errorCode, string errorMessage = null)
         {
             this.Value = value;
             this.ErrorCode = errorCode;
@@ -66,7 +67,7 @@ namespace MlIB
             else this.ErrorMessage = errorMessage;
         }
 
-        internal Reply(TReturn value, Exception exception)
+        internal Reply(TReturn value, Exception exception, string errorMessage = null)
         {
             this.Value = value;
             this.ErrorCode = null;

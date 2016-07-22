@@ -55,19 +55,19 @@ namespace M
             return new Reply<TReturn>(value);
         }
 
-        public static Reply<TReturn> Error<TReturn>(Enum errorCode, TReturn value, string errorMessage = "")
+        public static IReplyCode<TReturn> Error<TReturn>(Enum errorCode, string errorMessage = null, TReturn value = default(TReturn))
         {
             return new Reply<TReturn>(value, errorCode, errorMessage);
         }
 
-        public static Reply<TReturn> Error<TReturn>(string errorMessage, TReturn value)
+        public static IReplyMsg<TReturn> Error<TReturn>(string errorMessage, TReturn value = default(TReturn))
         {
             return new Reply<TReturn>(value, errorMessage);
         }
 
-        public static Reply<TReturn> Error<TReturn>(Exception ex, TReturn value = default(TReturn))
+        public static IReplyEx<TReturn> Error<TReturn>(Exception ex, string errorMessage = null, TReturn value = default(TReturn))
         {
-            return new Reply<TReturn>(value, ex);
+            return new Reply<TReturn>(value, ex, errorMessage);
         }
 
         public static void Throw(Enum errorCode, string errorMessage = "")

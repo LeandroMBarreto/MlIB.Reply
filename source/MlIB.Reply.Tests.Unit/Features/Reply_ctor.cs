@@ -19,9 +19,5 @@ namespace MlIB.Reply.Tests.Unit.Features
         //public Reply(T value, Exception exception)
 
 
-        //[TestMethod]
-        //public void TestMethod1()
-        //{
-        //}
     }
 }
