@@ -7,6 +7,8 @@ namespace MlIB.Reply.Tests.Unit.Stubs
 {
     class Common
     {
-        public string anyValue = "any value";
+        public static string VAL_anyValue = "any value";
+        public static string MSG_ErrorFound = "[ERROR FOUND]";
+        public static InvalidOperationException EXCEPTION = new InvalidOperationException("blablabla");
     }
 }

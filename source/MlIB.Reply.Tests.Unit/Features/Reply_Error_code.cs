@@ -81,7 +81,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O:
         [TestMethod]
         [Ignore]
-        public void Reply_Error_code_null_msg_empty_value_exception()
+        public void Reply_Error_code_null_msg_empty_value_valid_whenException()
         {
 
         }
@@ -90,7 +90,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O:
         [TestMethod]
         [Ignore]
-        public void Reply_Error_code_valid_msg_empty_value_exception()
+        public void Reply_Error_code_valid_msg_empty_value_valid_whenException()
         {
             //var result = M.Reply.Error(nullCode, anyValue);
 

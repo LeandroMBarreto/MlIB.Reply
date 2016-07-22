@@ -6,5 +6,6 @@ namespace M
 {
     public interface IReplyEx<TReturn>
     {
+        bool HasException { get; }
     }
 }

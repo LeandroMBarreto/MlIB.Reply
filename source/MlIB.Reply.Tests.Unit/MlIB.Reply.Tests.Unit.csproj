@@ -68,7 +68,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stubs\Common.cs" />
     <Compile Include="Stubs\MyErrorEnum.cs" />
-    <Compile Include="Features\prototype.cs" />
     <Compile Include="Stubs\VoidMethods.cs" />
   </ItemGroup>
   <ItemGroup />

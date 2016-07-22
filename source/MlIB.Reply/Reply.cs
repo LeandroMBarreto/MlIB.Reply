@@ -47,7 +47,7 @@ namespace MlIB
 
         public bool HasErrorCode { get { return this.ErrorCode != null; } }
         public bool HasException { get { return this.Exception != null; } }
-        public bool HasErrorMessage { get { return !string.IsNullOrEmpty(this.ErrorMessage); } }
+        public bool HasErrorMessage { get { return this.ErrorMessage != null; } }
 
 
         internal Reply(TReturn value, bool hasError = false)
