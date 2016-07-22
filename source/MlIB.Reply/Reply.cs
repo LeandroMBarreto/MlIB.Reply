@@ -43,14 +43,27 @@ namespace MlIB
         public string ErrorMessage { get; protected set; }
         public Exception Exception { get; protected set; }
 
-        public bool HasError { get { return HasErrorMessage || HasErrorCode || HasException; } }
+        public bool HasError { get; protected set; }
+
         public bool HasErrorCode { get { return this.ErrorCode != null; } }
         public bool HasException { get { return this.Exception != null; } }
         public bool HasErrorMessage { get { return !string.IsNullOrEmpty(this.ErrorMessage); } }
 
 
-        internal Reply(TReturn value, string errorMessage = null)
+        internal Reply(TReturn value, bool hasError = false)
         {
+            this.HasError = hasError;
+
+            this.Value = value;
+            this.Exception = null;
+            this.ErrorCode = null;
+            this.ErrorMessage = null;
+        }
+
+        internal Reply(TReturn value, string errorMessage)
+        {
+            this.HasError = true;
+
             this.Value = value;
             this.Exception = null;
             this.ErrorCode = null;

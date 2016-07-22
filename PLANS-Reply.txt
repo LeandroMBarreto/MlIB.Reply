@@ -6,6 +6,8 @@
 /IReplyMsg interface
 /IReplyCode interface
 /IReplyFull interface
+/NEVER THROW EXCEPTION
+
 COMPLETE TDD
 INTELLISENSE COMMENTS
 BETA TEST TIME PERIOD

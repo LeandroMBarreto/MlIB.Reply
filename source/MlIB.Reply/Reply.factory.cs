@@ -50,19 +50,24 @@ namespace M
     public static class Reply
     {
 
-        public static Reply<TReturn> NoError<TReturn>(TReturn value)
+        public static IReply<TReturn> NoError<TReturn>(TReturn value)
         {
             return new Reply<TReturn>(value);
         }
 
-        public static IReplyCode<TReturn> Error<TReturn>(Enum errorCode, string errorMessage = null, TReturn value = default(TReturn))
+        public static IReplyMsg<TReturn> Error<TReturn>(TReturn value = default(TReturn))
         {
-            return new Reply<TReturn>(value, errorCode, errorMessage);
+            return new Reply<TReturn>(value, true);
         }
 
         public static IReplyMsg<TReturn> Error<TReturn>(string errorMessage, TReturn value = default(TReturn))
         {
             return new Reply<TReturn>(value, errorMessage);
+        }
+
+        public static IReplyCode<TReturn> Error<TReturn>(Enum errorCode, string errorMessage = null, TReturn value = default(TReturn))
+        {
+            return new Reply<TReturn>(value, errorCode, errorMessage);
         }
 
         public static IReplyEx<TReturn> Error<TReturn>(Exception ex, string errorMessage = null, TReturn value = default(TReturn))
@@ -82,7 +87,7 @@ namespace M
         /// </summary>
         /// <param name="method">The method to execute. ie: ()=>method(arg1, arg2, arg3, arg...)</param>
         /// <returns></returns>
-        public static Reply<Exception> From(Action method)
+        public static IReplyEx<Exception> From(Action method)
         {
             try
             {
@@ -102,7 +107,7 @@ namespace M
         /// <typeparam name="TReturn">The type of the data returned by method</typeparam>
         /// <param name="method">The method to execute. ie: ()=>method(arg1, arg2, arg3, arg...)</param>
         /// <returns></returns>
-        public static Reply<TReturn> From<TReturn>(Func<TReturn> method)
+        public static IReplyEx<TReturn> From<TReturn>(Func<TReturn> method)
         {
             try
             {
