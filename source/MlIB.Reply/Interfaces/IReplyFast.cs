@@ -8,5 +8,7 @@ namespace M
     {
         TReturn Value { get; }
         bool HasError { get; }
+
+        void Throw(string msgPrefix = null);
     }
 }

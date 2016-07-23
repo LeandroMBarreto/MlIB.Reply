@@ -7,7 +7,7 @@
 /IReplyCode interface
 /IReplyFull interface
 /NEVER THROW EXCEPTION
-unit tests for IReplyEx.Throw(optionalPrefix)
+/unit tests for IReplyFast.Throw(msgPrefix)
 
 COMPLETE TDD
 INTELLISENSE COMMENTS
