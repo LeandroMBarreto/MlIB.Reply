@@ -32,7 +32,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         }
 
         //I:having null exception
-        //O:throw warning exception 
+        //O:throw ReplyException 
         //O:generic exception message
         [TestMethod]
         public void IReplyFast_Throw_havingNullException()
@@ -56,7 +56,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         }
 
         //I:having null exception, having valid message
-        //O:throw warning exception 
+        //O:throw ReplyException 
         //O:error message in exception message
         [TestMethod]
         public void IReplyFast_Throw_havingNullException_havingValidMessage()
@@ -80,7 +80,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         }
 
         //I:having null exception, having value exception
-        //O:throw warning exception 
+        //O:throw ReplyException 
         //O:error message in exception message
         [TestMethod]
         public void IReplyFast_Throw_havingNullException_havingEmptyMessage_whenValueException()
@@ -148,7 +148,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         }
 
         //I:having null exception, msgPrefix empty
-        //O:throw warning exception 
+        //O:throw ReplyException 
         //O:empty message
         [TestMethod]
         public void IReplyFast_Throw_msgPrefix_empty_havingNullException()
@@ -172,7 +172,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         }
 
         //I:having null exception, having valid message, msgPrefix empty
-        //O:throw warning exception 
+        //O:throw ReplyException 
         //O:error message in exception message
         [TestMethod]
         public void IReplyFast_Throw_msgPrefix_empty_havingNullException_havingValidMessage()
@@ -196,7 +196,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         }
 
         //I:having null exception, having value exception, msgPrefix empty
-        //O:throw warning exception 
+        //O:throw ReplyException 
         //O:error message in exception message
         [TestMethod]
         public void IReplyFast_Throw_msgPrefix_empty_havingNullException_havingEmptyMessage_whenValueException()
@@ -220,7 +220,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         }
 
         //I:having valid exception, msgPrefix empty
-        //O:throw expected exception 
+        //O:throw ReplyException 
         [TestMethod]
         public void IReplyFast_Throw_msgPrefix_empty_havingValidException()
         {
@@ -237,8 +237,9 @@ namespace MlIB.Reply.Tests.Unit.Features
             }
 
             Assert.IsNotNull(assert, "WHY NOT THROWING??");
-            Assert.AreEqual(typeof(InvalidOperationException), assert.GetType(), "WHY NOT EXPECTED TYPE??");
-            Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.Message, "WHY NOT EXPECTED MESSAGE??");
+            Assert.AreEqual(typeof(ReplyException), assert.GetType(), "WHY NOT EXPECTED TYPE??");
+            Assert.AreEqual(Stubs.Common.EXCEPTION, assert.InnerException, "WHY NOT EXPECTED INNER EXCEPTION??");
+            Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.InnerException.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
     }

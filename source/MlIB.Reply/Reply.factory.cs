@@ -82,8 +82,7 @@ namespace M
 
         public static void Throw(Enum errorCode, string errorMessage = null)
         {
-            var reply = new Reply<bool>(false, errorCode, errorMessage);
-            throw new Exception(string.Format("ERROR {0}: {1}", errorCode, reply.ErrorMessage));
+            new Reply<bool>(false, errorCode, errorMessage).Throw();
         }
 
         /// <summary>

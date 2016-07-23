@@ -86,13 +86,15 @@ namespace MlIB
 
         internal Reply(TReturn value, Enum errorCode, string errorMessage = null)
         {
-            this.Value = value;
-            this.ErrorCode = errorCode;
-            this.Exception = null;
+            this.HasError = true;
 
-            if (HasError && string.IsNullOrEmpty(errorMessage))
-                this.ErrorMessage = Enum.GetName(errorCode.GetType(), errorCode);
-            else this.ErrorMessage = errorMessage;
+            this.Value = value;
+            this.Exception = null;
+            this.ErrorCode = errorCode;
+
+            this.ErrorMessage = errorMessage != null ? errorMessage
+              : errorCode != null ? Enum.GetName(errorCode.GetType(), errorCode)
+              : null;
         }
 
         internal Reply(TReturn value, Enum errorCode, Exception exception, string errorMessage = null)
@@ -104,20 +106,23 @@ namespace MlIB
         }
 
         /// <summary>
-        /// Throws a ReplyException encapsulating the specified exception
+        /// This method does nothing if the Reply object has no error.
+        /// When the only error is an exception, throw that exception.
+        /// If it has additional error data besides the exception, throw a ReplyException passing the exception as inner exception.
+        /// A ReplyException shows [{msgPrefix}-{ErrorCode}-{ErrorMessage}]
+        /// A msgPrefix not null counts as additional error data.
         /// </summary>
         /// <param name="msgPrefix">An optional prefix to append to the final exception message.</param>
         public void Throw(string msgPrefix = null)
         {
-            if (HasException) throw this.Exception;
             if (!HasError) return;
 
-            if (msgPrefix == null && ErrorCode == null && ErrorMessage == null)
-                msgPrefix = string.Format("A DEFAULT ERROR WAS THROWN BY AN OBJECT OF TYPE {0}", this.GetType());
+            if (msgPrefix == null && ErrorCode == null)
+                if (HasException) throw this.Exception;
+                else if (ErrorMessage == null)
+                    msgPrefix = string.Format("A DEFAULT ERROR WAS THROWN BY AN OBJECT OF TYPE {0}", this.GetType());
 
-            throw new ReplyException(string.Format(
-                "[{0}-{1}-{2}]", msgPrefix, ErrorCode, ErrorMessage
-                ), this.Exception);
+            throw new ReplyException(msgPrefix, ErrorCode, ErrorMessage, this.Exception);
         }
 
     }
