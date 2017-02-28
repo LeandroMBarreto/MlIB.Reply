@@ -4,23 +4,23 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MlIB.Reply.Tests.Unit.Features
 {
     [TestClass]
-    public class IReplyFast_Throw
+    public class IReplyFast_ThrowWhenError
     {
 
-        // IReplyFast.Throw(string msgPrefix = null)
+        // IReplyFast.ThrowWhenError(string msgPrefix = null)
 
         //I:having no error
         //O:dont throw, do nothing
         //O:keeps showing no error
         [TestMethod]
-        public void IReplyFast_Throw_havingNoError()
+        public void IReplyFast_ThrowWhenError_havingNoError()
         {
             var result = M.Reply.NoError(5);
 
             Exception assert = null;
             try
             {
-                result.Throw();
+                result.ThrowWhenError();
             }
             catch (Exception ex)
             {
@@ -35,7 +35,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O:throw ReplyException 
         //O:generic exception message
         [TestMethod]
-        public void IReplyFast_Throw_havingNullException()
+        public void IReplyFast_ThrowWhenError_havingNullException()
         {
             Exception nullEx = null;
             var result = M.Reply.Error<int>(nullEx);
@@ -43,7 +43,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Exception assert = null;
             try
             {
-                result.Throw();
+                result.ThrowWhenError();
             }
             catch (Exception ex)
             {
@@ -59,7 +59,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O:throw ReplyException 
         //O:error message in exception message
         [TestMethod]
-        public void IReplyFast_Throw_havingNullException_havingValidMessage()
+        public void IReplyFast_ThrowWhenError_havingNullException_havingValidMessage()
         {
             Exception nullEx = null;
             var result = M.Reply.Error<int>(nullEx, Stubs.Common.MSG_ErrorFound);
@@ -67,7 +67,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Exception assert = null;
             try
             {
-                result.Throw();
+                result.ThrowWhenError();
             }
             catch (Exception ex)
             {
@@ -83,7 +83,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O:throw ReplyException 
         //O:error message in exception message
         [TestMethod]
-        public void IReplyFast_Throw_havingNullException_havingEmptyMessage_whenValueException()
+        public void IReplyFast_ThrowWhenError_havingNullException_havingEmptyMessage_whenValueException()
         {
             Exception nullEx = null;
             var result = M.Reply.Error(nullEx, "", Stubs.Common.EXCEPTION);
@@ -91,7 +91,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Exception assert = null;
             try
             {
-                result.Throw();
+                result.ThrowWhenError();
             }
             catch (Exception ex)
             {
@@ -106,14 +106,14 @@ namespace MlIB.Reply.Tests.Unit.Features
         //I:having valid exception
         //O:throw expected exception 
         [TestMethod]
-        public void IReplyFast_Throw_havingValidException()
+        public void IReplyFast_ThrowWhenError_havingValidException()
         {
             var result = M.Reply.Error<int>(Stubs.Common.EXCEPTION);
 
             Exception assert = null;
             try
             {
-                result.Throw();
+                result.ThrowWhenError();
             }
             catch (Exception ex)
             {
@@ -129,14 +129,14 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O:dont throw, do nothing
         //O:keeps showing no error
         [TestMethod]
-        public void IReplyFast_Throw_msgPrefix_empty_havingNoError()
+        public void IReplyFast_ThrowWhenError_msgPrefix_empty_havingNoError()
         {
             var result = M.Reply.NoError(5);
 
             Exception assert = null;
             try
             {
-                result.Throw("");
+                result.ThrowWhenError("");
             }
             catch (Exception ex)
             {
@@ -151,7 +151,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O:throw ReplyException 
         //O:empty message
         [TestMethod]
-        public void IReplyFast_Throw_msgPrefix_empty_havingNullException()
+        public void IReplyFast_ThrowWhenError_msgPrefix_empty_havingNullException()
         {
             Exception nullEx = null;
             var result = M.Reply.Error<int>(nullEx);
@@ -159,7 +159,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Exception assert = null;
             try
             {
-                result.Throw("");
+                result.ThrowWhenError("");
             }
             catch (Exception ex)
             {
@@ -175,7 +175,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O:throw ReplyException 
         //O:error message in exception message
         [TestMethod]
-        public void IReplyFast_Throw_msgPrefix_empty_havingNullException_havingValidMessage()
+        public void IReplyFast_ThrowWhenError_msgPrefix_empty_havingNullException_havingValidMessage()
         {
             Exception nullEx = null;
             var result = M.Reply.Error<int>(nullEx, Stubs.Common.MSG_ErrorFound);
@@ -183,7 +183,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Exception assert = null;
             try
             {
-                result.Throw("");
+                result.ThrowWhenError("");
             }
             catch (Exception ex)
             {
@@ -199,7 +199,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O:throw ReplyException 
         //O:error message in exception message
         [TestMethod]
-        public void IReplyFast_Throw_msgPrefix_empty_havingNullException_havingEmptyMessage_whenValueException()
+        public void IReplyFast_ThrowWhenError_msgPrefix_empty_havingNullException_havingEmptyMessage_whenValueException()
         {
             Exception nullEx = null;
             var result = M.Reply.Error(nullEx, "", Stubs.Common.EXCEPTION);
@@ -207,7 +207,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Exception assert = null;
             try
             {
-                result.Throw("");
+                result.ThrowWhenError("");
             }
             catch (Exception ex)
             {
@@ -222,14 +222,14 @@ namespace MlIB.Reply.Tests.Unit.Features
         //I:having valid exception, msgPrefix empty
         //O:throw ReplyException 
         [TestMethod]
-        public void IReplyFast_Throw_msgPrefix_empty_havingValidException()
+        public void IReplyFast_ThrowWhenError_msgPrefix_empty_havingValidException()
         {
             var result = M.Reply.Error<int>(Stubs.Common.EXCEPTION);
 
             Exception assert = null;
             try
             {
-                result.Throw("");
+                result.ThrowWhenError("");
             }
             catch (Exception ex)
             {

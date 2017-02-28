@@ -113,7 +113,7 @@ namespace MlIB
         /// A msgPrefix not null counts as additional error data.
         /// </summary>
         /// <param name="msgPrefix">An optional prefix to append to the final exception message.</param>
-        public void Throw(string msgPrefix = null)
+        public void ThrowWhenError(string msgPrefix = null)
         {
             if (!HasError) return;
 

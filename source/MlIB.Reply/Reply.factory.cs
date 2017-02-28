@@ -82,7 +82,7 @@ namespace M
 
         public static void Throw(Enum errorCode, string errorMessage = null)
         {
-            new Reply<bool>(false, errorCode, errorMessage).Throw();
+            new Reply<bool>(false, errorCode, errorMessage).ThrowWhenError();
         }
 
         /// <summary>

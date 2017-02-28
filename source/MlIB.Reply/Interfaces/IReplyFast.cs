@@ -9,6 +9,6 @@ namespace M
         TReturn Value { get; }
         bool HasError { get; }
 
-        void Throw(string msgPrefix = null);
+        void ThrowWhenError(string msgPrefix = null);
     }
 }
