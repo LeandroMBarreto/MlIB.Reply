@@ -6,7 +6,7 @@ namespace MlIB.Reply.Tests.Unit.Features
     [TestClass]
     public class Reply_Error_code
     {
-
+        // UNIT UNDER TEST:
         //public static IReplyCode<TReturn> Error<TReturn>(Enum errorCode, string errorMessage = null, TReturn value = default(TReturn))
 
         //I:null

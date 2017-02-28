@@ -6,7 +6,7 @@ namespace MlIB.Reply.Tests.Unit.Features
     [TestClass]
     public class Reply_Error_exception
     {
-
+        // UNIT UNDER TEST:
         //public static IReplyEx<TReturn> Error<TReturn>(Exception ex, string errorMessage = null, TReturn value = default(TReturn))
 
         //I:null exception

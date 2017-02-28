@@ -6,7 +6,7 @@ namespace MlIB.Reply.Tests.Unit.Features
     [TestClass]
     public class IReplyFast_ThrowWhenError
     {
-
+        // UNIT UNDER TEST:
         // IReplyFast.ThrowWhenError(string msgPrefix = null)
 
         //I:having no error
