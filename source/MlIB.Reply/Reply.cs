@@ -106,13 +106,13 @@ namespace MlIB
         }
 
         /// <summary>
-        /// This method does nothing if the Reply object has no error.
-        /// When the only error is an exception, throw that exception.
-        /// If it has additional error data besides the exception, throw a ReplyException passing the exception as inner exception.
-        /// A ReplyException shows [{msgPrefix}-{ErrorCode}-{ErrorMessage}]
-        /// A msgPrefix not null counts as additional error data.
+        /// Does nothing when it has no error.
+        /// When the only error is an exception, it just throws that exception.
+        /// If any additional error data is provided (ie. msgPrefix), it throws a ReplyException passing any caught exception as InnerException.
+        /// The text message of ReplyException is formatted as [{msgPrefix}-{ErrorCode}-{ErrorMessage}].
+        /// # Reply library provides fast error messaging for methods and functions #
         /// </summary>
-        /// <param name="msgPrefix">An optional prefix to append to the final exception message.</param>
+        /// <param name="msgPrefix">An optional prefix to append to the exception message.</param>
         public void ThrowWhenError(string msgPrefix = null)
         {
             if (!HasError) return;
