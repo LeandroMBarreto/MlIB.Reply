@@ -120,7 +120,7 @@ namespace MlIB
             if (msgPrefix == null && ErrorCode == null)
                 if (HasException) throw this.Exception;
                 else if (ErrorMessage == null)
-                    msgPrefix = string.Format("A DEFAULT ERROR WAS THROWN BY AN OBJECT OF TYPE {0}", this.GetType());
+                    msgPrefix = string.Format("A DEFAULT ERROR WAS THROWN BY AN OBJECT OF TYPE {0}. NO ERROR MESSAGE WAS PROVIDED.", this.GetType());
 
             throw new ReplyException(msgPrefix, ErrorCode, ErrorMessage, this.Exception);
         }
