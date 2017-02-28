@@ -9,6 +9,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         // UNIT UNDER TEST:
         //public static void Throw(Enum errorCode, string errorMessage = null)
 
+
         //I:null code
         //O:throw ReplyException 
         //O:generic exception message
@@ -29,7 +30,8 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             Assert.IsNotNull(assert, "WHY NOT THROWING??");
             Assert.AreEqual(typeof(ReplyException), assert.GetType(), "WHY NOT EXPECTED TYPE??");
-            Assert.IsTrue(assert.Message.Contains("A DEFAULT ERROR WAS THROWN"), "WHY NOT EXPECTED MESSAGE??");
+            Assert.IsTrue(assert.Message.Equals("[--]"), "WHY NOT EXPECTED MESSAGE??"); 
+            //Assert.IsTrue(assert.Message.Contains("A DEFAULT ERROR WAS THROWN"), "WHY NOT EXPECTED MESSAGE??"); //revoked for lower complexity
         }
 
         //I:null code, empty msg

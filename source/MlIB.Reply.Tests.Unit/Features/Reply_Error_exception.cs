@@ -33,7 +33,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O:has error
         //O:default value
         //O:error details exception
-        //O:exception msg for msg
+        //O:msg null
         [TestMethod]
         public void Reply_Error_exception_valid()
         {
@@ -45,8 +45,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.IsTrue(result.HasException);     //O:expected exception
             Assert.AreEqual(Stubs.Common.EXCEPTION, result.Exception);  //O:error details exception
 
-            Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");     //O:exception msg for msg
-            Assert.AreEqual(Stubs.Common.EXCEPTION.Message, result.ErrorMessage, "WHY NOT EXPECTED MSG??");     //O:exception msg for msg
+            Assert.IsFalse(result.HasErrorMessage, "WHY NO MSG??");         //O:msg null
         }
 
         //I:null exception, valid msg

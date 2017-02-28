@@ -80,8 +80,7 @@ namespace MlIB
             this.Value = value;
             this.ErrorCode = null;
             this.Exception = exception;
-            this.ErrorMessage = errorMessage != null ? errorMessage
-                : exception != null ? exception.Message : null;
+            this.ErrorMessage = errorMessage;
         }
 
         internal Reply(TReturn value, Enum errorCode, string errorMessage = null)
@@ -117,12 +116,10 @@ namespace MlIB
         {
             if (!HasError) return;
 
-            if (msgPrefix == null && ErrorCode == null)
+            if (msgPrefix == null && this.ErrorMessage == null && ErrorCode == null)
                 if (HasException) throw this.Exception;
-                else if (ErrorMessage == null)
-                    msgPrefix = string.Format("A DEFAULT ERROR WAS THROWN BY AN OBJECT OF TYPE {0}. NO ERROR MESSAGE WAS PROVIDED.", this.GetType());
 
-            throw new ReplyException(msgPrefix, ErrorCode, ErrorMessage, this.Exception);
+            throw new ReplyException(msgPrefix, this.ErrorCode, this.ErrorMessage, this.Exception);
         }
 
     }
