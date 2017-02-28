@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MlIB.Reply.Tests.Unit.Features
 {
     [TestClass]
-    public class Reply_From
+    public class static_Reply_From
     {
         // UNIT UNDER TEST:
         //public static Reply<Exception> From(Action method)

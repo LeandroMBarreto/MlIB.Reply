@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MlIB.Reply.Tests.Unit.Features
 {
     [TestClass]
-    public class Reply_Throw
+    public class static_Reply_Throw
     {
         // UNIT UNDER TEST:
         //public static void Throw(Enum errorCode, string errorMessage = null)

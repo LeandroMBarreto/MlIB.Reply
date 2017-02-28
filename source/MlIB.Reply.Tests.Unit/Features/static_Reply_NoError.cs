@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MlIB.Reply.Tests.Unit.Features
 {
     [TestClass]
-    public class Reply_NoError
+    public class static_Reply_NoError
     {
         // UNIT UNDER TEST:
         //public static Reply<T> NoError<T>(T value)
