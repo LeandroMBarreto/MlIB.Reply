@@ -80,11 +80,11 @@ namespace MlIB.Reply.Tests.Unit.Features
             //Assert.IsTrue(assert.Message.Contains("A DEFAULT ERROR WAS THROWN"), "WHY NOT EXPECTED MESSAGE??"); revoked for lower complexity
         }
 
-        //I: HasError true, msgPrefix null, exception null, errorCode valid, errorMsg null
+        //I: HasError true, msgPrefix null, exception null, errorCode ok, errorMsg null
         //O:throw ReplyException 
         //O:generic exception message
         [TestMethod][Ignore]
-        public void IReplyFast_ThrowWhenError_WHEN_exception_null_errorCode_valid_errorMsg_null()
+        public void IReplyFast_ThrowWhenError_WHEN_exception_null_errorCode_ok_errorMsg_null()
         {
             //Exception nullEx = null;
             //var result = M.Reply.Error<int>(nullEx); //add errorCode here
@@ -104,12 +104,12 @@ namespace MlIB.Reply.Tests.Unit.Features
             //Assert.IsTrue(assert.Message.Contains("CODE"), "WHY NOT EXPECTED MESSAGE??"); 
         }
 
-        //I: HasError true, msgPrefix null, exception null, errorCode valid, errorMsg valid
+        //I: HasError true, msgPrefix null, exception null, errorCode ok, errorMsg ok
         //O:throw ReplyException 
         //O:generic exception message
         [TestMethod]
         [Ignore]
-        public void IReplyFast_ThrowWhenError_WHEN_exception_null_errorCode_valid_errorMsg_valid()
+        public void IReplyFast_ThrowWhenError_WHEN_exception_null_errorCode_ok_errorMsg_ok()
         {
             Exception nullEx = null;
             var result = M.Reply.Error<int>(nullEx); //add errorCode here
@@ -129,11 +129,11 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.IsTrue(assert.Message.Contains("CODE"), "WHY NOT EXPECTED MESSAGE??");
         }
 
-        //I: HasError true, msgPrefix null, exception null, errorCode null, errorMsg valid
+        //I: HasError true, msgPrefix null, exception null, errorCode null, errorMsg ok
         //O:throw ReplyException 
         //O:error message in exception message
         [TestMethod]
-        public void IReplyFast_ThrowWhenError_WHEN_exception_null_errorCode_null_errorMsg_valid()
+        public void IReplyFast_ThrowWhenError_WHEN_exception_null_errorCode_null_errorMsg_ok()
         {
             Exception nullEx = null;
             var result = M.Reply.Error<int>(nullEx, Stubs.Common.MSG_ErrorFound);
@@ -153,10 +153,10 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.IsTrue(assert.Message.Contains(Stubs.Common.MSG_ErrorFound), "WHY NOT EXPECTED MESSAGE??");
         }
 
-        //I: HasError true, msgPrefix null, exception valid, errorCode null, errorMsg null
+        //I: HasError true, msgPrefix null, exception ok, errorCode null, errorMsg null
         //O:throw expected exception 
         [TestMethod]
-        public void IReplyFast_ThrowWhenError_WHEN_exception_valid_errorCode_null_errorMsg_null()
+        public void IReplyFast_ThrowWhenError_WHEN_exception_ok_errorCode_null_errorMsg_null()
         {
             var result = M.Reply.Error<int>(Stubs.Common.EXCEPTION);
 
@@ -175,10 +175,10 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
-        //I: HasError true, msgPrefix null, exception valid, errorCode null, errorMsg valid
+        //I: HasError true, msgPrefix null, exception ok, errorCode null, errorMsg ok
         //O:throw ReplyException exception 
         [TestMethod]
-        public void IReplyFast_ThrowWhenError_WHEN_exception_valid_errorCode_null_errorMsg_valid()
+        public void IReplyFast_ThrowWhenError_WHEN_exception_ok_errorCode_null_errorMsg_ok()
         {
             var result = M.Reply.Error<int>(Stubs.Common.EXCEPTION, Stubs.Common.MSG_ErrorFound);
 
@@ -199,10 +199,10 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.InnerException.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
-        //I: HasError true, msgPrefix null, exception valid, errorCode valid, errorMsg null
+        //I: HasError true, msgPrefix null, exception ok, errorCode ok, errorMsg null
         //O:throw ReplyException 
         [TestMethod][Ignore]
-        public void IReplyFast_ThrowWhenError_WHEN_exception_valid_errorCode_valid_errorMsg_null()
+        public void IReplyFast_ThrowWhenError_WHEN_exception_ok_errorCode_ok_errorMsg_null()
         {
             //var result = M.Reply.Error<int>(Stubs.Common.EXCEPTION); //add errorCode here
 
@@ -223,11 +223,11 @@ namespace MlIB.Reply.Tests.Unit.Features
             //Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.InnerException.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
-        //I: HasError true, msgPrefix null, exception valid, errorCode valid, errorMsg valid
+        //I: HasError true, msgPrefix null, exception ok, errorCode ok, errorMsg ok
         //O:throw ReplyException 
         [TestMethod]
         [Ignore]
-        public void IReplyFast_ThrowWhenError_WHEN_exception_valid_errorCode_valid_errorMsg_valid()
+        public void IReplyFast_ThrowWhenError_WHEN_exception_ok_errorCode_ok_errorMsg_ok()
         {
             //var result = M.Reply.Error<int>(Stubs.Common.EXCEPTION); //add errorCode here & msg
 
@@ -243,12 +243,12 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             //Assert.IsNotNull(assert, "WHY NOT THROWING??");
             //Assert.AreEqual(typeof(ReplyException), assert.GetType(), "WHY NOT EXPECTED TYPE??");
-            ////Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.Message, "WHY NOT EXPECTED MESSAGE??"); add msg valid
+            ////Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.Message, "WHY NOT EXPECTED MESSAGE??"); add msg ok
             //Assert.AreEqual(Stubs.Common.EXCEPTION, assert.InnerException, "WHY NOT EXPECTED INNER EXCEPTION??");
             //Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.InnerException.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
-        //I: HasError true, msgPrefix valid, exception null, errorCode null, errorMsg null
+        //I: HasError true, msgPrefix ok, exception null, errorCode null, errorMsg null
         //O:throw ReplyException 
         //O:empty message
         [TestMethod]
@@ -272,11 +272,11 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.AreEqual("[--]", assert.Message, "WHY NOT EMPTY MESSAGE??");
         }
 
-        //I: HasError true, msgPrefix valid, exception null, errorCode valid, errorMsg null
+        //I: HasError true, msgPrefix ok, exception null, errorCode ok, errorMsg null
         //O:throw ReplyException 
         //O:empty message
         [TestMethod][Ignore]
-        public void IReplyFast_ThrowWhenError_msgPrefix_empty_WHEN_exception_null_errorCode_valid_errorMsg_null()
+        public void IReplyFast_ThrowWhenError_msgPrefix_empty_WHEN_exception_null_errorCode_ok_errorMsg_null()
         {
             //Exception nullEx = null;
             //var result = M.Reply.Error<int>(nullEx);
@@ -298,11 +298,11 @@ namespace MlIB.Reply.Tests.Unit.Features
             //Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.InnerException.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
-        //I: HasError true, msgPrefix valid, exception null, errorCode null, errorMsg valid
+        //I: HasError true, msgPrefix ok, exception null, errorCode null, errorMsg ok
         //O:throw ReplyException 
         //O:error message in exception message
         [TestMethod]
-        public void IReplyFast_ThrowWhenError_msgPrefix_valid_WHEN_exception_null_errorCode_null_errorMsg_valid()
+        public void IReplyFast_ThrowWhenError_msgPrefix_ok_WHEN_exception_null_errorCode_null_errorMsg_ok()
         {
             Exception nullEx = null;
             var result = M.Reply.Error<int>(nullEx, Stubs.Common.MSG_ErrorFound);
@@ -322,11 +322,11 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.IsTrue(assert.Message.Contains(Stubs.Common.MSG_ErrorFound), "WHY NOT EXPECTED MESSAGE??");
         }
 
-        //I: HasError true, msgPrefix valid, exception null, errorCode valid, errorMsg valid
+        //I: HasError true, msgPrefix ok, exception null, errorCode ok, errorMsg ok
         //O:throw ReplyException 
         //O:error message in exception message
         [TestMethod][Ignore]
-        public void IReplyFast_ThrowWhenError_msgPrefix_valid_WHEN_exception_null_errorCode_valid_errorMsg_valid()
+        public void IReplyFast_ThrowWhenError_msgPrefix_ok_WHEN_exception_null_errorCode_ok_errorMsg_ok()
         {
             //Exception nullEx = null;
             //var result = M.Reply.Error<int>(nullEx, Stubs.Common.MSG_ErrorFound);
@@ -348,10 +348,10 @@ namespace MlIB.Reply.Tests.Unit.Features
             //Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.InnerException.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
-        //I: HasError true, msgPrefix valid, exception valid, errorCode null, errorMsg null
+        //I: HasError true, msgPrefix ok, exception ok, errorCode null, errorMsg null
         //O:throw ReplyException 
         [TestMethod]
-        public void IReplyFast_ThrowWhenError_msgPrefix_valid_WHEN_exception_valid_errorCode_null_errorMsg_null()
+        public void IReplyFast_ThrowWhenError_msgPrefix_ok_WHEN_exception_ok_errorCode_null_errorMsg_null()
         {
             var result = M.Reply.Error<int>(Stubs.Common.EXCEPTION);
 
@@ -371,10 +371,10 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.InnerException.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
-        //I: HasError true, msgPrefix valid, exception valid, errorCode null, errorMsg valid
+        //I: HasError true, msgPrefix ok, exception ok, errorCode null, errorMsg ok
         //O:throw ReplyException 
         [TestMethod]
-        public void IReplyFast_ThrowWhenError_msgPrefix_valid_WHEN_exception_valid_errorCode_null_errorMsg_valid()
+        public void IReplyFast_ThrowWhenError_msgPrefix_ok_WHEN_exception_ok_errorCode_null_errorMsg_ok()
         {
             var result = M.Reply.Error<int>(Stubs.Common.EXCEPTION, Stubs.Common.MSG_ErrorFound);
 
@@ -395,10 +395,10 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.InnerException.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
-        //I: HasError true, msgPrefix valid, exception valid, errorCode valid, errorMsg null
+        //I: HasError true, msgPrefix ok, exception ok, errorCode ok, errorMsg null
         //O:throw ReplyException 
         [TestMethod][Ignore]
-        public void IReplyFast_ThrowWhenError_msgPrefix_valid_WHEN_exception_valid_errorCode_valid_errorMsg_null()
+        public void IReplyFast_ThrowWhenError_msgPrefix_ok_WHEN_exception_ok_errorCode_ok_errorMsg_null()
         {
             //var result = M.Reply.Error<int>(Stubs.Common.EXCEPTION); add code
 
@@ -418,11 +418,11 @@ namespace MlIB.Reply.Tests.Unit.Features
             //Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.InnerException.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
-        //I: HasError true, msgPrefix valid, exception valid, errorCode valid, errorMsg valid
+        //I: HasError true, msgPrefix ok, exception ok, errorCode ok, errorMsg ok
         //O:throw ReplyException 
         [TestMethod]
         [Ignore]
-        public void IReplyFast_ThrowWhenError_msgPrefix_valid_WHEN_exception_valid_errorCode_valid_errorMsg_valid()
+        public void IReplyFast_ThrowWhenError_msgPrefix_ok_WHEN_exception_ok_errorCode_ok_errorMsg_ok()
         {
             //var result = M.Reply.Error<int>(Stubs.Common.EXCEPTION); add code & msg
 
