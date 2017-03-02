@@ -9,6 +9,18 @@ namespace MlIB.Reply.Tests.Unit.Features
         // UNIT UNDER TEST:
         // IReplyFast.ThrowWhenError(string msgPrefix = null)
 
+        //TODO: Reduce implicit parameters to lower complexity?
+        //This should be possible by breaking them down into
+        // smaller units specialized on exception configuration.
+        //Having to configure messages on the fly probably cuts
+        // the advantage of speed this library seeks to provide.
+        //So best approach would be an one-time configuration
+        // set globally with a default setting initialized.
+        //Should make sure different configs across assemblies
+        // don't conflict though.
+        
+
+        #region [ WHEN HasError == false ]
 
         //I: HasError false, msgPrefix null
         //O:dont throw, do nothing
@@ -32,29 +44,86 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.IsFalse(result.HasError, "WHY HAS ERROR??");  //O:keeps showing no error
         }
 
-        //I: HasError false, msgPrefix valid
-        //O:dont throw, do nothing
-        //O:keeps showing no error
-        [TestMethod]
-        public void IReplyFast_ThrowWhenError_msgPrefix_valid_WHEN_HasError_false()
-        {
-            var result = M.Reply.NoError(5);
+        #region [ 36 IGNORED TESTS WHEN HasError == false ] //BECAUSE WE *KNOW* THE *CURRENT* CODE WON'T LET THEM HAPPEN
 
-            Exception assert = null;
-            try
-            {
-                result.ThrowWhenError("blabla");
-            }
-            catch (Exception ex)
-            {
-                assert = ex;
-            }
+        // _msgPrefix_null_WHEN_HasError_false_exception_null_errorCode_null_errorMsg_null
+
+        // _msgPrefix_empty_WHEN_HasError_false_exception_null_errorCode_null_errorMsg_null
+
+        // _msgPrefix_ok_WHEN_HasError_false_exception_null_errorCode_null_errorMsg_null
+
+        // _msgPrefix_null_WHEN_HasError_false_exception_ok_errorCode_null_errorMsg_null
+
+        // _msgPrefix_empty_WHEN_HasError_false_exception_ok_errorCode_null_errorMsg_null
+
+        // _msgPrefix_ok_WHEN_HasError_false_exception_ok_errorCode_null_errorMsg_null
+
+        // _msgPrefix_null_WHEN_HasError_false_exception_null_errorCode_ok_errorMsg_null
+
+        // _msgPrefix_empty_WHEN_HasError_false_exception_null_errorCode_ok_errorMsg_null
+
+        // _msgPrefix_ok_WHEN_HasError_false_exception_null_errorCode_ok_errorMsg_null
+
+        // _msgPrefix_null_WHEN_HasError_false_exception_ok_errorCode_ok_errorMsg_null
+
+        // _msgPrefix_empty_WHEN_HasError_false_exception_ok_errorCode_ok_errorMsg_null
+
+        // _msgPrefix_ok_WHEN_HasError_false_exception_ok_errorCode_ok_errorMsg_null
+
+        // _msgPrefix_null_WHEN_HasError_false_exception_null_errorCode_null_errorMsg_empty
+
+        // _msgPrefix_empty_WHEN_HasError_false_exception_null_errorCode_null_errorMsg_empty
+
+        // _msgPrefix_ok_WHEN_HasError_false_exception_null_errorCode_null_errorMsg_empty
+
+        // _msgPrefix_null_WHEN_HasError_false_exception_ok_errorCode_null_errorMsg_empty
+
+        // _msgPrefix_empty_WHEN_HasError_false_exception_ok_errorCode_null_errorMsg_empty
+
+        // _msgPrefix_ok_WHEN_HasError_false_exception_ok_errorCode_null_errorMsg_empty
+
+        // _msgPrefix_null_WHEN_HasError_false_exception_null_errorCode_ok_errorMsg_empty
+
+        // _msgPrefix_empty_WHEN_HasError_false_exception_null_errorCode_ok_errorMsg_empty
+
+        // _msgPrefix_ok_WHEN_HasError_false_exception_null_errorCode_ok_errorMsg_empty
+
+        // _msgPrefix_null_WHEN_HasError_false_exception_ok_errorCode_ok_errorMsg_empty
+
+        // _msgPrefix_empty_WHEN_HasError_false_exception_ok_errorCode_ok_errorMsg_empty
+
+        // _msgPrefix_ok_WHEN_HasError_false_exception_ok_errorCode_ok_errorMsg_empty
+
+        // _msgPrefix_null_WHEN_HasError_false_exception_null_errorCode_null_errorMsg_ok
+
+        // _msgPrefix_empty_WHEN_HasError_false_exception_null_errorCode_null_errorMsg_ok
+
+        // _msgPrefix_ok_WHEN_HasError_false_exception_null_errorCode_null_errorMsg_ok
+
+        // _msgPrefix_null_WHEN_HasError_false_exception_ok_errorCode_null_errorMsg_ok
+
+        // _msgPrefix_empty_WHEN_HasError_false_exception_ok_errorCode_null_errorMsg_ok
+
+        // _msgPrefix_ok_WHEN_HasError_false_exception_ok_errorCode_null_errorMsg_ok
+
+        // _msgPrefix_null_WHEN_HasError_false_exception_null_errorCode_ok_errorMsg_ok
+
+        // _msgPrefix_empty_WHEN_HasError_false_exception_null_errorCode_ok_errorMsg_ok
+
+        // _msgPrefix_ok_WHEN_HasError_false_exception_null_errorCode_ok_errorMsg_ok
+
+        // _msgPrefix_null_WHEN_HasError_false_exception_ok_errorCode_ok_errorMsg_ok
+
+        // _msgPrefix_empty_WHEN_HasError_false_exception_ok_errorCode_ok_errorMsg_ok
+
+        // _msgPrefix_ok_WHEN_HasError_false_exception_ok_errorCode_ok_errorMsg_ok
+
+        #endregion
+
+        #endregion
 
 
-            Assert.IsNull(assert, "WHY THROWING??");  //O:dont throw, do nothing
-            Assert.IsFalse(result.HasError);  //O:keeps showing no error
-        }
-
+        // _msgPrefix_null_WHEN_HasError_true_exception_null_errorCode_null_errorMsg_null
         //I: HasError true, msgPrefix null, exception null, errorCode null, errorMsg null
         //O:throw ReplyException 
         //O:generic exception message
@@ -80,6 +149,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             //Assert.IsTrue(assert.Message.Contains("A DEFAULT ERROR WAS THROWN"), "WHY NOT EXPECTED MESSAGE??"); revoked for lower complexity
         }
 
+        // _msgPrefix_null_WHEN_HasError_true_exception_null_errorCode_ok_errorMsg_null
         //I: HasError true, msgPrefix null, exception null, errorCode ok, errorMsg null
         //O:throw ReplyException 
         //O:generic exception message
@@ -104,6 +174,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             //Assert.IsTrue(assert.Message.Contains("CODE"), "WHY NOT EXPECTED MESSAGE??"); 
         }
 
+        // _msgPrefix_null_WHEN_HasError_true_exception_null_errorCode_ok_errorMsg_ok
         //I: HasError true, msgPrefix null, exception null, errorCode ok, errorMsg ok
         //O:throw ReplyException 
         //O:generic exception message
@@ -129,6 +200,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.IsTrue(assert.Message.Contains("CODE"), "WHY NOT EXPECTED MESSAGE??");
         }
 
+        // _msgPrefix_null_WHEN_HasError_true_exception_null_errorCode_null_errorMsg_ok
         //I: HasError true, msgPrefix null, exception null, errorCode null, errorMsg ok
         //O:throw ReplyException 
         //O:error message in exception message
@@ -153,6 +225,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.IsTrue(assert.Message.Contains(Stubs.Common.MSG_ErrorFound), "WHY NOT EXPECTED MESSAGE??");
         }
 
+        // _msgPrefix_null_WHEN_HasError_true_exception_ok_errorCode_null_errorMsg_null
         //I: HasError true, msgPrefix null, exception ok, errorCode null, errorMsg null
         //O:throw expected exception 
         [TestMethod]
@@ -175,6 +248,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
+        // _msgPrefix_null_WHEN_HasError_true_exception_ok_errorCode_null_errorMsg_ok
         //I: HasError true, msgPrefix null, exception ok, errorCode null, errorMsg ok
         //O:throw ReplyException exception 
         [TestMethod]
@@ -199,6 +273,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.InnerException.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
+        // _msgPrefix_null_WHEN_HasError_true_exception_ok_errorCode_ok_errorMsg_null
         //I: HasError true, msgPrefix null, exception ok, errorCode ok, errorMsg null
         //O:throw ReplyException 
         [TestMethod][Ignore]
@@ -223,6 +298,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             //Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.InnerException.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
+        // _msgPrefix_null_WHEN_HasError_true_exception_ok_errorCode_ok_errorMsg_ok
         //I: HasError true, msgPrefix null, exception ok, errorCode ok, errorMsg ok
         //O:throw ReplyException 
         [TestMethod]
@@ -248,6 +324,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             //Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.InnerException.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
+        // _msgPrefix_empty_WHEN_HasError_true_exception_null_errorCode_null_errorMsg_null
         //I: HasError true, msgPrefix ok, exception null, errorCode null, errorMsg null
         //O:throw ReplyException 
         //O:empty message
@@ -272,6 +349,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.AreEqual("[--]", assert.Message, "WHY NOT EMPTY MESSAGE??");
         }
 
+        // _msgPrefix_empty_WHEN_HasError_true_exception_null_errorCode_ok_errorMsg_null
         //I: HasError true, msgPrefix ok, exception null, errorCode ok, errorMsg null
         //O:throw ReplyException 
         //O:empty message
@@ -298,6 +376,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             //Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.InnerException.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
+        // _msgPrefix_ok_WHEN_HasError_true_exception_null_errorCode_null_errorMsg_ok
         //I: HasError true, msgPrefix ok, exception null, errorCode null, errorMsg ok
         //O:throw ReplyException 
         //O:error message in exception message
@@ -322,6 +401,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.IsTrue(assert.Message.Contains(Stubs.Common.MSG_ErrorFound), "WHY NOT EXPECTED MESSAGE??");
         }
 
+        // _msgPrefix_ok_WHEN_HasError_true_exception_null_errorCode_ok_errorMsg_ok
         //I: HasError true, msgPrefix ok, exception null, errorCode ok, errorMsg ok
         //O:throw ReplyException 
         //O:error message in exception message
@@ -348,6 +428,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             //Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.InnerException.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
+        // _msgPrefix_ok_WHEN_HasError_true_exception_ok_errorCode_null_errorMsg_null
         //I: HasError true, msgPrefix ok, exception ok, errorCode null, errorMsg null
         //O:throw ReplyException 
         [TestMethod]
@@ -371,6 +452,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.InnerException.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
+        // _msgPrefix_ok_WHEN_HasError_true_exception_ok_errorCode_null_errorMsg_ok
         //I: HasError true, msgPrefix ok, exception ok, errorCode null, errorMsg ok
         //O:throw ReplyException 
         [TestMethod]
@@ -395,6 +477,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.InnerException.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
+        // _msgPrefix_ok_WHEN_HasError_true_exception_ok_errorCode_ok_errorMsg_null
         //I: HasError true, msgPrefix ok, exception ok, errorCode ok, errorMsg null
         //O:throw ReplyException 
         [TestMethod][Ignore]
@@ -418,6 +501,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             //Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.InnerException.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
+        // _msgPrefix_ok_WHEN_HasError_true_exception_ok_errorCode_ok_errorMsg_ok
         //I: HasError true, msgPrefix ok, exception ok, errorCode ok, errorMsg ok
         //O:throw ReplyException 
         [TestMethod]
@@ -441,5 +525,50 @@ namespace MlIB.Reply.Tests.Unit.Features
             //Assert.AreEqual(Stubs.Common.EXCEPTION, assert.InnerException, "WHY NOT EXPECTED INNER EXCEPTION??");
             //Assert.AreEqual(Stubs.Common.EXCEPTION.Message, assert.InnerException.Message, "WHY NOT EXPECTED MESSAGE??");
         }
+
+
+        #region [ IGNORED TESTS ] //BECAUSE WE DON'T *THINK* IT'S WORTH TESTING THIS MUCH
+
+        // _msgPrefix_ok_WHEN_HasError_true_exception_null_errorCode_null_errorMsg_null
+
+        // _msgPrefix_empty_WHEN_HasError_true_exception_ok_errorCode_null_errorMsg_null
+
+        // _msgPrefix_ok_WHEN_HasError_true_exception_null_errorCode_ok_errorMsg_null
+
+        // _msgPrefix_empty_WHEN_HasError_true_exception_ok_errorCode_ok_errorMsg_null
+
+        // _msgPrefix_null_WHEN_HasError_true_exception_null_errorCode_null_errorMsg_empty
+
+        // _msgPrefix_empty_WHEN_HasError_true_exception_null_errorCode_null_errorMsg_empty
+
+        // _msgPrefix_ok_WHEN_HasError_true_exception_null_errorCode_null_errorMsg_empty
+
+        // _msgPrefix_null_WHEN_HasError_true_exception_ok_errorCode_null_errorMsg_empty
+
+        // _msgPrefix_empty_WHEN_HasError_true_exception_ok_errorCode_null_errorMsg_empty
+
+        // _msgPrefix_ok_WHEN_HasError_true_exception_ok_errorCode_null_errorMsg_empty
+
+        // _msgPrefix_null_WHEN_HasError_true_exception_null_errorCode_ok_errorMsg_empty
+
+        // _msgPrefix_empty_WHEN_HasError_true_exception_null_errorCode_ok_errorMsg_empty
+
+        // _msgPrefix_ok_WHEN_HasError_true_exception_null_errorCode_ok_errorMsg_empty
+
+        // _msgPrefix_null_WHEN_HasError_true_exception_ok_errorCode_ok_errorMsg_empty
+
+        // _msgPrefix_empty_WHEN_HasError_true_exception_ok_errorCode_ok_errorMsg_empty
+
+        // _msgPrefix_ok_WHEN_HasError_true_exception_ok_errorCode_ok_errorMsg_empty
+
+        // _msgPrefix_empty_WHEN_HasError_true_exception_null_errorCode_null_errorMsg_ok
+
+        // _msgPrefix_empty_WHEN_HasError_true_exception_ok_errorCode_null_errorMsg_ok
+
+        // _msgPrefix_empty_WHEN_HasError_true_exception_null_errorCode_ok_errorMsg_ok
+
+        // _msgPrefix_empty_WHEN_HasError_true_exception_ok_errorCode_ok_errorMsg_ok
+        
+        #endregion
     }
 }
