@@ -52,6 +52,20 @@ namespace MlIB
         public bool HasException { get { return this.Exception != null; } }
         public bool HasErrorMessage { get { return this.ErrorMessage != null; } }
 
+        /// <summary>
+        /// Generates a standard message about this Reply object.
+        /// Value data is kept hidden to not disclose sensitive data.
+        /// Message format:
+        /// | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |
+        /// </summary>
+        public string FullStatusMessage
+        {
+            get
+            {
+                return string.Format("| ErrorCodeID: {0} | ErrorCodeLabel: {1} | ErrorMessage: {2} |"
+                    , "n/a", "n/a", "n/a");
+            }
+        }
 
         internal Reply(TReturn value, bool hasError = false)
         {
@@ -105,21 +119,17 @@ namespace MlIB
         }
 
         /// <summary>
-        /// Does nothing when it has no error.
-        /// When the only error is an exception, it just throws that exception.
-        /// If any additional error data is provided (ie. msgPrefix), it throws a ReplyException passing any caught exception as InnerException.
-        /// The text message of ReplyException is formatted as [{msgPrefix}-{ErrorCode}-{ErrorMessage}].
-        /// # Reply library provides fast error messaging for methods and functions #
+        /// Does nothing when HasError is false.
+        /// When true, throws a ReplyFullException.
+        /// The exception message is the same from property FullStatusMessage.
+        /// Any exception previously caught by this Reply object is passed in as InnerException.
         /// </summary>
-        /// <param name="msgPrefix">An optional prefix to append to the exception message.</param>
-        public void ThrowWhenError(string msgPrefix = null)
+        /// <param name="messagePrefix">An optional prefix to append to the exception message.</param>
+        public void ThrowAnyError(string messagePrefix = "ERROR")
         {
             if (!HasError) return;
 
-            if (msgPrefix == null && this.ErrorMessage == null && ErrorCode == null)
-                if (HasException) throw this.Exception;
-
-            throw new ReplyException(msgPrefix, this.ErrorCode, this.ErrorMessage, this.Exception);
+            throw new ReplyFullException(messagePrefix, this.FullStatusMessage);
         }
 
     }

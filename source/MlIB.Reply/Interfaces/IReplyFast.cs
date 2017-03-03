@@ -10,13 +10,12 @@ namespace M
         bool HasError { get; }
 
         /// <summary>
-        /// Does nothing when it has no error.
-        /// When the only error is an exception, it just throws that exception.
-        /// If any additional error data is provided (ie. msgPrefix), it throws a ReplyException passing any caught exception as InnerException.
-        /// The text message of ReplyException is formatted as [{msgPrefix}-{ErrorCode}-{ErrorMessage}].
-        /// # Reply library provides fast error messaging for methods and functions #
+        /// Does nothing when HasError is false.
+        /// When true, throws a ReplyFullException.
+        /// The exception message is the same from FullMessage property.
+        /// Any exception previously caught by this Reply object is passed in as InnerException.
         /// </summary>
-        /// <param name="msgPrefix">An optional prefix to append to the exception message.</param>
-        void ThrowWhenError(string msgPrefix = null);
+        /// <param name="messagePrefix">An optional prefix to append to the exception message.</param>
+        void ThrowAnyError(string messagePrefix = "ERROR");
     }
 }

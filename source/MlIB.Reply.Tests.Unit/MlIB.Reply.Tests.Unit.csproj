@@ -53,7 +53,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Features\IReplyFast_ThrowWhenError.cs">
+    <Compile Include="Features\IReplyFast_ThrowAnyError.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Features\static_Reply_Error_fast.cs" />

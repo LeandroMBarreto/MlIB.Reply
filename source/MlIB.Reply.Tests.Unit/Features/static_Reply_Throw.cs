@@ -29,7 +29,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             }
 
             Assert.IsNotNull(assert, "WHY NOT THROWING??");
-            Assert.AreEqual(typeof(ReplyException), assert.GetType(), "WHY NOT EXPECTED TYPE??");
+            Assert.AreEqual(typeof(ReplyFullException), assert.GetType(), "WHY NOT EXPECTED TYPE??");
             Assert.IsTrue(assert.Message.Equals("[--]"), "WHY NOT EXPECTED MESSAGE??"); 
             //Assert.IsTrue(assert.Message.Contains("A DEFAULT ERROR WAS THROWN"), "WHY NOT EXPECTED MESSAGE??"); //revoked for lower complexity
         }
@@ -53,7 +53,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             }
 
             Assert.IsNotNull(assert, "WHY NOT THROWING??");
-            Assert.AreEqual(typeof(ReplyException), assert.GetType(), "WHY NOT EXPECTED TYPE??");
+            Assert.AreEqual(typeof(ReplyFullException), assert.GetType(), "WHY NOT EXPECTED TYPE??");
             Assert.AreEqual("[--]", assert.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
@@ -76,7 +76,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             }
 
             Assert.IsNotNull(assert, "WHY NOT THROWING??");
-            Assert.AreEqual(typeof(ReplyException), assert.GetType(), "WHY NOT EXPECTED TYPE??");
+            Assert.AreEqual(typeof(ReplyFullException), assert.GetType(), "WHY NOT EXPECTED TYPE??");
             Assert.IsTrue(assert.Message.Contains(Stubs.Common.MSG_ErrorFound), "WHY NOT EXPECTED MESSAGE??");
         }
 
