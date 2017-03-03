@@ -4,7 +4,7 @@ using System.Text;
 
 namespace M
 {
-    public interface IReplyFull<TReturn> : IReplyFast<TReturn>, IReplyEx<TReturn>, IReplyMsg<TReturn>, IReplyCode<TReturn>
+    public interface IReplyFull<TReturn> : IReply<TReturn>, IReplyEx<TReturn>, IReplyMsg<TReturn>, IReplyCode<TReturn>
     {
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace M
 {
-    public interface IReplyCode<TReturn> : IReplyFast<TReturn>, IReplyMsg<TReturn>
+    public interface IReplyCode<TReturn> : IReply<TReturn>, IReplyMsg<TReturn>
     {
         Enum ErrorCode { get; }
         bool HasErrorCode { get; }

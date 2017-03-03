@@ -1,4 +1,5 @@
 ﻿using System;
+using M;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MlIB.Reply.Tests.Unit.Features
@@ -19,7 +20,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         public void static_Reply_Error_errorMsg_null_value_default()
         {
             string nullMsg = null;
-            var result = M.Reply.Error<int>(nullMsg);
+            IReplyMsg<int> result = M.Reply.Error<int>(nullMsg);
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");    //O1: HasError true
             Assert.IsFalse(result.HasErrorMessage, "WHY HAVE MSG??");        //O3: HasErrorMessage false

@@ -37,7 +37,7 @@ namespace MlIB
     /// </summary>
     /// <typeparam name="TReturn">The type of the returned value</typeparam>
     public class Reply<TReturn>
-        : IReplyFast<TReturn>, IReplyEx<TReturn>, IReplyCode<TReturn>, IReplyMsg<TReturn>
+        : IReply<TReturn>, IReplyEx<TReturn>, IReplyCode<TReturn>, IReplyMsg<TReturn>
         , IReplyFull<TReturn>, IReplyCodeMsg<TReturn>
     {
 

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace M
 {
-    public interface IReplyEx<TReturn> : IReplyFast<TReturn>
+    public interface IReplyEx<TReturn> : IReply<TReturn>
     {
         Exception Exception { get; }
         bool HasException { get; }
