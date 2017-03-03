@@ -14,7 +14,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O:has no error
         //O:nullString as value
         [TestMethod]
-        public void Reply_NoError_value_nullString()
+        public void static_Reply_NoError_value_nullString()
         {
             var result = M.Reply.NoError<string>(null);
 
@@ -26,7 +26,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O:has no error
         //O:emptyString as value
         [TestMethod]
-        public void Reply_NoError_value_emptyString()
+        public void static_Reply_NoError_value_emptyString()
         {
             var result = M.Reply.NoError(string.Empty);
 
@@ -38,7 +38,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O:has no error
         //O:expected value is set
         [TestMethod]
-        public void Reply_NoError_value_ok()
+        public void static_Reply_NoError_value_ok()
         {
             var value = "ANY VALUE";
 
@@ -52,7 +52,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O:has no error
         //O:exception as value
         [TestMethod]
-        public void Reply_NoError_value_exception()
+        public void static_Reply_NoError_value_exception()
         {
             var result = M.Reply.NoError(Stubs.Common.EXCEPTION);
 
