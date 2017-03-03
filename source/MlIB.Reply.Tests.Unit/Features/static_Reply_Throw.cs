@@ -9,7 +9,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         // UNIT UNDER TEST:
         //public static void Throw(Enum errorCode, string errorMessage = null)
 
-
+        /*
         //I:null code
         //O:throw ReplyException 
         //O:generic exception message
@@ -106,6 +106,6 @@ namespace MlIB.Reply.Tests.Unit.Features
         {
 
         }
-
+*/
     }
 }

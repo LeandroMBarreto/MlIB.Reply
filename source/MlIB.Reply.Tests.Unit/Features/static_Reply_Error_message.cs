@@ -9,6 +9,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         // UNIT UNDER TEST:
         //public static IReplyMsg<TReturn> Error<TReturn>(string errorMessage, TReturn value = default(TReturn))
 
+        /*
         //I:null msg
         //O:has error
         //O:default value
@@ -158,6 +159,6 @@ namespace MlIB.Reply.Tests.Unit.Features
             var convertedResult = result as M.IReplyEx<InvalidOperationException>;
             Assert.IsFalse(convertedResult.HasException, "WHY HAS EXCEPTION??"); //O:dont have exception
         }
-
+*/
     }
 }

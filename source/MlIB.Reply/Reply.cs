@@ -112,6 +112,9 @@ namespace MlIB
 
         internal Reply(TReturn value, Enum errorCode, Exception exception, string errorMessage = null)
         {
+            //todo: unit test should require this later
+            //this.HasError = true;
+
             this.Value = value;
             this.ErrorCode = errorCode;
             this.Exception = exception;
@@ -125,12 +128,12 @@ namespace MlIB
         /// Any exception previously caught by this Reply object is passed in as InnerException.
         /// </summary>
         /// <param name="messagePrefix">An optional prefix to append to the exception message.</param>
-        public void ThrowAnyError(string messagePrefix = "ERROR")
-        {
-            if (!HasError) return;
+        //public void ThrowAnyError(string messagePrefix = "ERROR")
+        //{
+        //    if (!HasError) return;
 
-            throw new ReplyFullException(messagePrefix, this.FullStatusMessage);
-        }
+        //    throw new ReplyFullException(messagePrefix, this.FullStatusMessage);
+        //}
 
     }
 }

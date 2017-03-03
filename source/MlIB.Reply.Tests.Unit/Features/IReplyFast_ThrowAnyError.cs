@@ -9,7 +9,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         // UNIT UNDER TEST:
         // void ThrowAnyError(string messagePrefix = null)
 
-
+        /*
         //I: - messagePrefix null - WHEN HasError false
         //O: dont throw, do nothing
         //O: keeps showing no error
@@ -112,6 +112,6 @@ namespace MlIB.Reply.Tests.Unit.Features
                 Assert.AreEqual(expectedOutput, ex.Message, "WHY NOT EXPECTED MESSAGE??");
             }
         }
-
+*/        
     }
 }

@@ -9,11 +9,12 @@ namespace MlIB.Reply.Tests.Unit.Features
         // UNIT UNDER TEST:
         //public static Reply<T> NoError<T>(T value)
 
-        //I:null value
+
+        //I:value nullString
         //O:has no error
-        //O:null as value
+        //O:nullString as value
         [TestMethod]
-        public void Reply_NoError_value_null()
+        public void Reply_NoError_value_nullString()
         {
             var result = M.Reply.NoError<string>(null);
 
@@ -21,19 +22,33 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.AreEqual(null, result.Value, "WHY NOT EXPECTED VALUE??");
         }
 
-        //I:valid value
+        //I:value emptyString
         //O:has no error
-        //O:expected valid value
+        //O:emptyString as value
         [TestMethod]
-        public void Reply_NoError_value_valid()
+        public void Reply_NoError_value_emptyString()
         {
-            var result = M.Reply.NoError(Stubs.Common.VAL_anyValue);
+            var result = M.Reply.NoError(string.Empty);
 
             Assert.IsFalse(result.HasError, "WHY HAS ERROR??");
-            Assert.AreEqual(Stubs.Common.VAL_anyValue, result.Value, "WHY NOT EXPECTED VALUE??");
+            Assert.AreEqual(string.Empty, result.Value, "WHY NOT EXPECTED VALUE??");
         }
 
-        //I:valid exception value
+        //I:value ok
+        //O:has no error
+        //O:expected value is set
+        [TestMethod]
+        public void Reply_NoError_value_ok()
+        {
+            var value = "ANY VALUE";
+
+            var result = M.Reply.NoError(value);
+
+            Assert.IsFalse(result.HasError, "WHY HAS ERROR??");
+            Assert.AreEqual(value, result.Value, "WHY NOT EXPECTED VALUE??");
+        }
+
+        //I:value exception
         //O:has no error
         //O:exception as value
         [TestMethod]

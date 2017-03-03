@@ -16,6 +16,6 @@ namespace M
         /// Any exception previously caught by this Reply object is passed in as InnerException.
         /// </summary>
         /// <param name="messagePrefix">An optional prefix to append to the exception message.</param>
-        void ThrowAnyError(string messagePrefix = "ERROR");
+        //void ThrowAnyError(string messagePrefix = "ERROR");
     }
 }

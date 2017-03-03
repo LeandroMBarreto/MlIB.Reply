@@ -55,35 +55,35 @@ namespace M
             return new Reply<TReturn>(value);
         }
 
-        public static IReplyFast<TReturn> Error<TReturn>(TReturn value = default(TReturn))
-        {
-            return new Reply<TReturn>(value, true);
-        }
+        //public static IReplyFast<TReturn> Error<TReturn>(TReturn value = default(TReturn))
+        //{
+        //    return new Reply<TReturn>(value, true);
+        //}
 
-        public static IReplyMsg<TReturn> Error<TReturn>(string errorMessage, TReturn value = default(TReturn))
-        {
-            return new Reply<TReturn>(value, errorMessage);
-        }
+        //public static IReplyMsg<TReturn> Error<TReturn>(string errorMessage, TReturn value = default(TReturn))
+        //{
+        //    return new Reply<TReturn>(value, errorMessage);
+        //}
 
-        public static IReplyExMsg<TReturn> Error<TReturn>(Exception ex, string errorMessage = null, TReturn value = default(TReturn))
-        {
-            return new Reply<TReturn>(value, ex, errorMessage);
-        }
+        //public static IReplyExMsg<TReturn> Error<TReturn>(Exception ex, string errorMessage = null, TReturn value = default(TReturn))
+        //{
+        //    return new Reply<TReturn>(value, ex, errorMessage);
+        //}
 
-        public static IReplyCodeMsg<TReturn> Error<TReturn>(Enum errorCode, string errorMessage = null, TReturn value = default(TReturn))
-        {
-            return new Reply<TReturn>(value, errorCode, errorMessage);
-        }
+        //public static IReplyCodeMsg<TReturn> Error<TReturn>(Enum errorCode, string errorMessage = null, TReturn value = default(TReturn))
+        //{
+        //    return new Reply<TReturn>(value, errorCode, errorMessage);
+        //}
 
-        public static IReplyFull<TReturn> Error<TReturn>(Enum errorCode, Exception ex, string errorMessage = null, TReturn value = default(TReturn))
-        {
-            return new Reply<TReturn>(value, errorCode, ex, errorMessage);
-        }
+        //public static IReplyFull<TReturn> Error<TReturn>(Enum errorCode, Exception ex, string errorMessage = null, TReturn value = default(TReturn))
+        //{
+        //    return new Reply<TReturn>(value, errorCode, ex, errorMessage);
+        //}
 
-        public static void Throw(Enum errorCode, string errorMessage = null)
-        {
-            new Reply<bool>(false, errorCode, errorMessage).ThrowAnyError();
-        }
+        //public static void Throw(Enum errorCode, string errorMessage = null)
+        //{
+        //    new Reply<bool>(false, errorCode, errorMessage).ThrowAnyError();
+        //}
 
         /// <summary>
         /// Wraps the specified method in a try-catch block and executes it.
@@ -91,18 +91,18 @@ namespace M
         /// </summary>
         /// <param name="method">The method to execute. ie: ()=>method(arg1, arg2, arg3, arg...)</param>
         /// <returns></returns>
-        public static IReplyEx<Exception> From(Action method)
-        {
-            try
-            {
-                method();
-                return new Reply<Exception>(null);
-            }
-            catch (Exception ex)
-            {
-                return new Reply<Exception>(ex, ex);
-            }
-        }
+        //public static IReplyEx<Exception> From(Action method)
+        //{
+        //    try
+        //    {
+        //        method();
+        //        return new Reply<Exception>(null);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return new Reply<Exception>(ex, ex);
+        //    }
+        //}
         
         /// <summary>
         /// Wraps the specified method in a try-catch block and executes it.
@@ -111,17 +111,17 @@ namespace M
         /// <typeparam name="TReturn">The type of the data returned by method</typeparam>
         /// <param name="method">The method to execute. ie: ()=>method(arg1, arg2, arg3, arg...)</param>
         /// <returns></returns>
-        public static IReplyEx<TReturn> From<TReturn>(Func<TReturn> method)
-        {
-            try
-            {
-                return new Reply<TReturn>(method());
-            }
-            catch (Exception ex)
-            {
-                return new Reply<TReturn>(default(TReturn), ex);
-            }
-        }
+        //public static IReplyEx<TReturn> From<TReturn>(Func<TReturn> method)
+        //{
+        //    try
+        //    {
+        //        return new Reply<TReturn>(method());
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return new Reply<TReturn>(default(TReturn), ex);
+        //    }
+        //}
 
     }
 }

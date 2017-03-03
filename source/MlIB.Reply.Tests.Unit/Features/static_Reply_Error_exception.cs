@@ -9,6 +9,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         // UNIT UNDER TEST:
         //public static IReplyEx<TReturn> Error<TReturn>(Exception ex, string errorMessage = null, TReturn value = default(TReturn))
 
+        /*
         //I:null exception
         //O:has error
         //O:default value
@@ -306,6 +307,6 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             Assert.AreNotEqual(result.Exception, result.Value); //O:exception not same as value
         }
-
+*/
     }
 }

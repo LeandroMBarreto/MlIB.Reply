@@ -9,7 +9,8 @@ namespace MlIB.Reply.Tests.Unit.Features
     {
         // UNIT UNDER TEST:
         //public static IReplyEx<TReturn> Error<TReturn>(TReturn value = default(TReturn))
-
+       
+        /*
         //I:none
         //O:has error
         //O:default value
@@ -43,6 +44,6 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.IsFalse(convertedResult.HasErrorMessage, "WHY HAVE MSG??");  //O:null error details
             Assert.AreEqual(null, convertedResult.ErrorMessage, "WHY NOT NULL MSG??");  //O:null error details
         }
-
+     */  
     }
 }
