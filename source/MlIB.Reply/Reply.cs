@@ -38,7 +38,7 @@ namespace MlIB
     /// <typeparam name="TReturn">The type of the returned value</typeparam>
     public class Reply<TReturn>
         : IReplyFast<TReturn>, IReplyEx<TReturn>, IReplyCode<TReturn>, IReplyMsg<TReturn>
-        , IReplyFull<TReturn>, IReplyExMsg<TReturn>, IReplyCodeMsg<TReturn>
+        , IReplyFull<TReturn>, IReplyCodeMsg<TReturn>
     {
 
         public TReturn Value { get; protected set; }
