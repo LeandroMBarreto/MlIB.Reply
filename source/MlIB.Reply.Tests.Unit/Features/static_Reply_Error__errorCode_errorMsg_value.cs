@@ -4,108 +4,83 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MlIB.Reply.Tests.Unit.Features
 {
     [TestClass]
-    public class static_Reply_Error__errorCode_errorMsg
+    public class static_Reply_Error__errorCode_errorMsg_value
     {
         // UNIT UNDER TEST:
-        //public static IReplyCode<TReturn> Error<TReturn>(Enum errorCode, string errorMessage = null, TReturn value = default(TReturn))
+        // public static IReplyCodeMsg<TReturn> Error<TReturn>(Enum errorCode, string errorMsg, TReturn value = default(TReturn))
 
-        //I:null
-        //O:
+
+        //I: - errorCode null - errorMsg null - value default
+        //O: 
         [TestMethod]
         [Ignore]
-        public void Reply_Error_code_null()
-        {
+        public void static_Reply_Error_errorCode_null_errorMsg_null_value_default() { }
 
-        }
-
-        //I:valid
-        //O:
-
-        //I:null, empty
-        //O:
-
-        //I:valid, empty
-        //O:
+        //I: - errorCode ok - errorMsg null - value default
+        //O: 
         [TestMethod]
         [Ignore]
-        public void Reply_Error_code_valid_msg_empty()
-        {
+        public void static_Reply_Error_errorCode_ok_errorMsg_null_value_default() { }
 
-        }
-
-        //I:null, valid
-        //O:
-
-        //I:valid, valid
-        //O:
-      
-        //I:null, empty, valid
-        //O:
+        //I: - errorCode null - errorMsg empty - value default
+        //O: 
         [TestMethod]
         [Ignore]
-        public void Reply_Error_code_null_msg_empty_value_valid()
-        {
-            //    Enum nullCode = null;
-            //    var result = M.Reply.Error(nullCode, anyValue);
+        public void static_Reply_Error_errorCode_null_errorMsg_empty_value_default() { }
 
-            //    Assert.IsFalse(result.HasError);
-            //    Assert.IsFalse(result.HasErrorCode);
-            //    Assert.IsFalse(result.HasErrorMessage);
-            //    Assert.IsNull(result.ErrorCode);
-            //    Assert.AreEqual(result.Value, anyValue);
-        }
-
-
-        //I:valid, empty, valid
-        //O:
+        //I: - errorCode ok - errorMsg empty - value default
+        //O: 
         [TestMethod]
         [Ignore]
-        public void Reply_Error_code_valid_msg_empty_value_valid()
-        {
-            //    var result = M.Reply.Error(MyErrorEnum.ACCESS_DENIED, anyValue);
+        public void static_Reply_Error_errorCode_ok_errorMsg_empty_value_default() { }
 
-            //    Assert.IsTrue(result.HasError);
-            //    Assert.IsTrue(result.HasErrorCode);
-            //    Assert.IsTrue(result.HasErrorMessage);
-            //    Assert.AreEqual(result.ErrorCode, MyErrorEnum.ACCESS_DENIED);
-            //    Assert.AreEqual(result.Value, anyValue);
-        }
-
-        //I:null, valid, valid
-        //O:
-
-        //I:valid, valid, valid
-        //O:
-        
-        //I:null, empty, valid exception
-        //O:
+        //I: - errorCode null - errorMsg ok - value default
+        //O: 
         [TestMethod]
         [Ignore]
-        public void Reply_Error_code_null_msg_empty_value_valid_whenException()
-        {
+        public void static_Reply_Error_errorCode_null_errorMsg_ok_value_default() { }
 
-        }
-
-        //I:valid, empty, valid exception
-        //O:
+        //I: - errorCode ok - errorMsg ok - value default
+        //O: 
         [TestMethod]
         [Ignore]
-        public void Reply_Error_code_valid_msg_empty_value_valid_whenException()
-        {
-            //var result = M.Reply.Error(nullCode, anyValue);
+        public void static_Reply_Error_errorCode_ok_errorMsg_ok_value_default() { }
 
-            //Assert.IsFalse(result.HasError);
-            //Assert.IsFalse(result.HasErrorCode);
-            //Assert.IsFalse(result.HasErrorMessage);
-            //Assert.IsNull(result.ErrorCode);
-            //Assert.AreEqual(result.Value, anyValue);
-        }
+        //I: - errorCode null - errorMsg null - value ok
+        //O: 
+        [TestMethod]
+        [Ignore]
+        public void static_Reply_Error_errorCode_null_errorMsg_null_value_ok() { }
 
-        //I:null, valid, valid exception
-        //O:
+        //I: - errorCode ok - errorMsg null - value ok
+        //O: 
+        [TestMethod]
+        [Ignore]
+        public void static_Reply_Error_errorCode_ok_errorMsg_null_value_ok() { }
 
-        //I:valid, valid, valid exception
-        //O:
+        //I: - errorCode null - errorMsg empty - value ok
+        //O: 
+        [TestMethod]
+        [Ignore]
+        public void static_Reply_Error_errorCode_null_errorMsg_empty_value_ok() { }
+
+        //I: - errorCode ok - errorMsg empty - value ok
+        //O: 
+        [TestMethod]
+        [Ignore]
+        public void static_Reply_Error_errorCode_ok_errorMsg_empty_value_ok() { }
+
+        //I: - errorCode null - errorMsg ok - value ok
+        //O: 
+        [TestMethod]
+        [Ignore]
+        public void static_Reply_Error_errorCode_null_errorMsg_ok_value_ok() { }
+
+        //I: - errorCode ok - errorMsg ok - value ok
+        //O: 
+        [TestMethod]
+        [Ignore]
+        public void static_Reply_Error_errorCode_ok_errorMsg_ok_value_ok() { }
 
     }
 }
