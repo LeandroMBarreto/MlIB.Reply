@@ -52,6 +52,24 @@ namespace MlIB
         public bool HasException { get { return this.Exception != null; } }
         public bool HasErrorMessage { get { return this.ErrorMessage != null; } }
 
+        public string ErrorCodeID
+        {
+            get
+            {
+                if (!HasErrorCode) return null;
+                else return Convert.ChangeType(ErrorCode, Enum.GetUnderlyingType(ErrorCode.GetType())).ToString();
+            }
+        }
+
+        public string ErrorCodeLabel
+        {
+            get
+            {
+                if (!HasErrorCode) return null;
+                else return Enum.GetName(ErrorCode.GetType(), ErrorCode);
+            }
+        }
+
         /// <summary>
         /// Generates a standard message about this Reply object.
         /// Value data is kept hidden to not disclose sensitive data.
@@ -134,6 +152,5 @@ namespace MlIB
 
         //    throw new ReplyFullException(messagePrefix, this.FullStatusMessage);
         //}
-
     }
 }

@@ -4,9 +4,11 @@ using System.Text;
 
 namespace M
 {
-    public interface IReplyCode<TReturn> : IReply<TReturn>, IReplyMsg<TReturn>
+    public interface IReplyCode<TReturn> : IReply<TReturn>
     {
-        Enum ErrorCode { get; }
         bool HasErrorCode { get; }
+        Enum ErrorCode { get; }
+        string ErrorCodeID { get; }
+        string ErrorCodeLabel { get; }
     }
 }
