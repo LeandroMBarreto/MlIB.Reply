@@ -5,7 +5,7 @@ using MlIB.Reply.Tests.Unit.Stubs;
 namespace MlIB.Reply.Tests.Unit.Features
 {
     [TestClass]
-    public class static_Reply_ErrorGeneric_value
+    public class static_Reply_ErrorGeneric
     {
         // UNIT UNDER TEST:
         // public static IReplyEx<TReturn> Error<TReturn>(TReturn value = default(TReturn))

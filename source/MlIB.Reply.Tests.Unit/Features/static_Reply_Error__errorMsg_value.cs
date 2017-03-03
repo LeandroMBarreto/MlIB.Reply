@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MlIB.Reply.Tests.Unit.Features
 {
     [TestClass]
-    public class static_Reply_Error_errorMsg
+    public class static_Reply_Error__errorMsg_value
     {
         // UNIT UNDER TEST:
         // public static IReplyMsg<TReturn> Error<TReturn>(string errorMsg, TReturn value = default(TReturn))
