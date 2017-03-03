@@ -60,10 +60,10 @@ namespace M
             return new Reply<TReturn>(value, true);
         }
 
-        //public static IReplyMsg<TReturn> Error<TReturn>(string errorMessage, TReturn value = default(TReturn))
-        //{
-        //    return new Reply<TReturn>(value, errorMessage);
-        //}
+        public static IReplyMsg<TReturn> Error<TReturn>(string errorMsg, TReturn value = default(TReturn))
+        {
+            return new Reply<TReturn>(value, errorMsg);
+        }
 
         //public static IReplyExMsg<TReturn> Error<TReturn>(Exception ex, string errorMessage = null, TReturn value = default(TReturn))
         //{

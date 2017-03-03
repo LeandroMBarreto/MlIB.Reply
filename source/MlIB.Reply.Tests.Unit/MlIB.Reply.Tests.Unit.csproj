@@ -61,7 +61,7 @@
     <Compile Include="Features\static_Reply_Throw.cs" />
     <Compile Include="Features\static_Reply_From.cs" />
     <Compile Include="Features\Reply_ctor.cs" />
-    <Compile Include="Features\static_Reply_Error_message.cs" />
+    <Compile Include="Features\static_Reply_Error_errorMsg.cs" />
     <Compile Include="Features\static_Reply_Error_exception.cs" />
     <Compile Include="Features\static_Reply_Error_code.cs" />
     <Compile Include="Features\static_Reply_Error_full.cs" />
