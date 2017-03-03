@@ -55,10 +55,10 @@ namespace M
             return new Reply<TReturn>(value);
         }
 
-        //public static IReplyFast<TReturn> Error<TReturn>(TReturn value = default(TReturn))
-        //{
-        //    return new Reply<TReturn>(value, true);
-        //}
+        public static IReplyFast<TReturn> Error<TReturn>(TReturn value = default(TReturn))
+        {
+            return new Reply<TReturn>(value, true);
+        }
 
         //public static IReplyMsg<TReturn> Error<TReturn>(string errorMessage, TReturn value = default(TReturn))
         //{

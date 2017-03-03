@@ -56,7 +56,7 @@
     <Compile Include="Features\IReplyFast_ThrowAnyError.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Features\static_Reply_Error_fast.cs" />
+    <Compile Include="Features\static_Reply_Error_value.cs" />
     <Compile Include="Features\static_Reply_NoError.cs" />
     <Compile Include="Features\static_Reply_Throw.cs" />
     <Compile Include="Features\static_Reply_From.cs" />
