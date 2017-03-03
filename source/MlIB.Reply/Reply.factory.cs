@@ -55,7 +55,7 @@ namespace M
             return new Reply<TReturn>(value);
         }
 
-        public static IReplyFast<TReturn> Error<TReturn>(TReturn value = default(TReturn))
+        public static IReplyFast<TReturn> ErrorGeneric<TReturn>(TReturn value = default(TReturn))
         {
             return new Reply<TReturn>(value, true);
         }

@@ -35,12 +35,12 @@ namespace MlIB.Reply.Tests.Unit.Features
         [TestMethod]
         public void static_Reply_Error_errorMsg_empty_value_default()
         {
-            var result = M.Reply.Error<int>("");
+            var result = M.Reply.Error<string>("");
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");    //O1: HasError true
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");           //O3: HasErrorMessage true
             Assert.AreEqual(string.Empty, result.ErrorMessage, "WHY NOT EMPTY MSG??");     //O4: ErrorMessage empty
-            Assert.AreEqual(default(int), result.Value, "WHY NOT DEFAULT VALUE??");      //O2: value default
+            Assert.AreEqual(default(string), result.Value, "WHY NOT DEFAULT VALUE??");      //O2: value default
         }
 
         //I: - errorMsg ok - value default
