@@ -144,12 +144,12 @@ namespace MlIB
         /// The exception message is the same from property FullStatusMessage.
         /// Any exception previously caught by this Reply object is passed in as InnerException.
         /// </summary>
-        /// <param name="messagePrefix">An optional prefix to append to the exception message.</param>
-        //public void ThrowAnyError(string messagePrefix = "ERROR")
-        //{
-        //    if (!HasError) return;
+        /// <param name="msgPrefix">An optional prefix to append to the exception message.</param>
+        public void ThrowAnyError(string msgPrefix = "ERROR")
+        {
+            if (!HasError) return;
 
-        //    throw new ReplyFullException(messagePrefix, this.FullStatusMessage);
-        //}
+            throw new ReplyFullException(msgPrefix, this.FullStatusMessage);
+        }
     }
 }

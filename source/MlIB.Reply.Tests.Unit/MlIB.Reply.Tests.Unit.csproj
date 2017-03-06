@@ -54,7 +54,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Features\PENDING\IReplyEx_ThrowCaughtException.cs" />
-    <Compile Include="Features\PENDING\IReplyFast_ThrowAnyError.cs">
+    <Compile Include="Features\Reply_ThrowAnyError.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Features\static_Reply_Error.cs" />

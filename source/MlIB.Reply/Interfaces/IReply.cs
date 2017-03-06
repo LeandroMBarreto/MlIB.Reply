@@ -15,7 +15,7 @@ namespace M
         /// The exception message is the same from FullMessage property.
         /// Any exception previously caught by this Reply object is passed in as InnerException.
         /// </summary>
-        /// <param name="messagePrefix">An optional prefix to append to the exception message.</param>
-        //void ThrowAnyError(string messagePrefix = "ERROR");
+        /// <param name="msgPrefix">An optional prefix to append to the exception message.</param>
+        void ThrowAnyError(string msgPrefix = "ERROR");
     }
 }

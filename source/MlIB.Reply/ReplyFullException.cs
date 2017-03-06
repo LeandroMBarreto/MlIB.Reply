@@ -7,13 +7,13 @@ namespace MlIB
     public class ReplyFullException : Exception
     {
 
-        internal ReplyFullException(string messagePrefix, string errorMessage, Exception innerException = null)
+        internal ReplyFullException(string msgPrefix, string errorMsg, Exception innerEx = null)
             : base(
             string.Format(
                      "[{0}] {1}"
-                     , string.IsNullOrEmpty(messagePrefix) ? "ERROR" : messagePrefix
-                     , errorMessage
-                        ), innerException)
+                     , string.IsNullOrEmpty(msgPrefix) ? "ERROR" : msgPrefix
+                     , errorMsg
+                        ), innerEx)
         { }
 
     }

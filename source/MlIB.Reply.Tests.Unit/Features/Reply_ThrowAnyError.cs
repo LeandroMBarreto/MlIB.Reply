@@ -4,17 +4,17 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MlIB.Reply.Tests.Unit.Features
 {
     [TestClass]
-    public class IReplyFast_ThrowAnyError
+    public class Reply_ThrowAnyError
     {
         // UNIT UNDER TEST:
-        // void ThrowAnyError(string messagePrefix = null)
+        // void ThrowAnyError(string msgPrefix = null)
 
-        /*
-        //I: - messagePrefix null - WHEN HasError false
+
+        //I: - msgPrefix null - WHEN HasError false
         //O: dont throw, do nothing
         //O: keeps showing no error
         [TestMethod]
-        public void IReplyFast_ThrowAnyError_messagePrefix_null_WHEN_HasError_false()
+        public void Reply_ThrowAnyError_msgPrefix_null_WHEN_HasError_false()
         {
             var result = M.Reply.NoError(5);
 
@@ -23,11 +23,11 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.IsFalse(result.HasError, "WHY HAS ERROR??");
         }
 
-        //I: - messagePrefix empty - WHEN HasError false
+        //I: - msgPrefix empty - WHEN HasError false
         //O: dont throw, do nothing
         //O: keeps showing no error
         [TestMethod]
-        public void IReplyFast_ThrowAnyError_messagePrefix_empty_WHEN_HasError_false()
+        public void Reply_ThrowAnyError_msgPrefix_empty_WHEN_HasError_false()
         {
             var result = M.Reply.NoError(5);
 
@@ -36,11 +36,11 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.IsFalse(result.HasError, "WHY HAS ERROR??");
         }
 
-        //I: - messagePrefix ok - WHEN HasError false
+        //I: - msgPrefix ok - WHEN HasError false
         //O: dont throw, do nothing
         //O: keeps showing no error
         [TestMethod]
-        public void IReplyFast_ThrowAnyError_messagePrefix_ok_WHEN_HasError_false()
+        public void Reply_ThrowAnyError_msgPrefix_ok_WHEN_HasError_false()
         {
             var result = M.Reply.NoError(5);
 
@@ -49,11 +49,11 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.IsFalse(result.HasError, "WHY HAS ERROR??");
         }
 
-        //I: - messagePrefix null - WHEN HasError true
+        //I: - msgPrefix null - WHEN HasError true
         //O: ReplyFullException
         //O: [ERROR] | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |
         [TestMethod]
-        public void IReplyFast_ThrowAnyError_messagePrefix_null_WHEN_HasError_true()
+        public void Reply_ThrowAnyError_msgPrefix_null_WHEN_HasError_true()
         {
             var expectedOutput = "[ERROR] | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |";
 
@@ -70,11 +70,11 @@ namespace MlIB.Reply.Tests.Unit.Features
             }
         }
 
-        //I: - messagePrefix empty - WHEN HasError true
+        //I: - msgPrefix empty - WHEN HasError true
         //O: ReplyFullException
         //O: [ERROR] | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |
         [TestMethod]
-        public void IReplyFast_ThrowAnyError_messagePrefix_empty_WHEN_HasError_true()
+        public void Reply_ThrowAnyError_msgPrefix_empty_WHEN_HasError_true()
         {
             var expectedOutput = "[ERROR] | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |";
 
@@ -91,20 +91,20 @@ namespace MlIB.Reply.Tests.Unit.Features
             }
         }
 
-        //I: - messagePrefix ok - WHEN HasError true
+        //I: - msgPrefix ok - WHEN HasError true
         //O: ReplyFullException
-        //O: [messagePrefix] | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |
+        //O: [msgPrefix] | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |
         [TestMethod]
-        public void IReplyFast_ThrowAnyError_messagePrefix_ok_WHEN_HasError_true()
+        public void Reply_ThrowAnyError_msgPrefix_ok_WHEN_HasError_true()
         {
-            var messagePrefix = "RANDOM MSG PREFIX";
-            var expectedOutput = string.Format("[{0}] | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |", messagePrefix);
+            var msgPrefix = "RANDOM MSG PREFIX";
+            var expectedOutput = string.Format("[{0}] | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |", msgPrefix);
 
             var result = M.Reply.Error(5);
 
             try
             {
-                result.ThrowAnyError(messagePrefix);
+                result.ThrowAnyError(msgPrefix);
             }
             catch (Exception ex)
             {
@@ -112,6 +112,6 @@ namespace MlIB.Reply.Tests.Unit.Features
                 Assert.AreEqual(expectedOutput, ex.Message, "WHY NOT EXPECTED MESSAGE??");
             }
         }
-*/        
+        
     }
 }
