@@ -70,11 +70,6 @@ namespace M
             return new Reply<TReturn>(value, errorCode);
         }
 
-        //public static IReplyCodeMsg<TReturn> Error<TReturn>(Enum errorCode, string errorMsg, TReturn value = default(TReturn))
-        //{
-        //    return new Reply<TReturn>(value, errorCode, errorMsg);
-        //}
-
         //public static IReplyFull<TReturn> Error<TReturn>(Enum errorCode, Exception ex, string errorMessage = null, TReturn value = default(TReturn))
         //{
         //    return new Reply<TReturn>(value, errorCode, ex, errorMessage);

@@ -58,7 +58,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Features\static_Reply_Error.cs" />
-    <Compile Include="Features\PENDING\static_Reply_Error__errorCode_errorMsg_value.cs" />
     <Compile Include="Features\static_Reply_NoError.cs" />
     <Compile Include="Features\PENDING\static_Reply_Throw.cs" />
     <Compile Include="Features\PENDING\static_Reply_From.cs" />

@@ -41,7 +41,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.AreEqual(null, result.ErrorCodeLabel, "FAIL ErrorCodeLabel");
 
             //O6: value default
-            Assert.AreEqual(default(int), result.Value);
+            Assert.AreEqual(default(int), result.Value, "FAIL value");
         }
 
         //I: - errorCode ok - value default
@@ -74,7 +74,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.AreEqual("ACCESS_DENIED", result.ErrorCodeLabel, "FAIL ErrorCodeLabel");
 
             //O6: value default
-            Assert.AreEqual(default(float), result.Value);
+            Assert.AreEqual(default(float), result.Value, "FAIL value");
         }
 
         //I: - errorCode null - value ok
@@ -107,7 +107,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.AreEqual(null, result.ErrorCodeLabel, "FAIL ErrorCodeLabel");
 
             //O6: value ok
-            Assert.AreEqual(value, result.Value);
+            Assert.AreEqual(value, result.Value, "FAIL value");
         }
 
         //I: - errorCode ok - value ok
@@ -141,7 +141,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             Assert.AreEqual("ACCESS_DENIED", result.ErrorCodeLabel, "FAIL ErrorCodeLabel");
 
             //O6: value ok
-            Assert.AreEqual(value, result.Value);
+            Assert.AreEqual(value, result.Value, "FAIL value");
         }
 
     }

@@ -36,9 +36,8 @@ namespace MlIB
     /// Use this class to return valuable error information from methods instead of ambiguous null, false or default values.
     /// </summary>
     /// <typeparam name="TReturn">The type of the returned value</typeparam>
-    public class Reply<TReturn>
-        : IReply<TReturn>, IReplyEx<TReturn>, IReplyCode<TReturn>, IReplyMsg<TReturn>
-        , IReplyFull<TReturn>, IReplyCodeMsg<TReturn>
+    public class Reply<TReturn> : IReply<TReturn>
+        , IReplyCode<TReturn>, IReplyMsg<TReturn>, IReplyEx<TReturn>, IReplyFull<TReturn>
     {
 
         public TReturn Value { get; protected set; }
