@@ -80,11 +80,6 @@ namespace M
         //    return new Reply<TReturn>(value, errorCode, ex, errorMessage);
         //}
 
-        //public static void Throw(Enum errorCode, string errorMessage = null)
-        //{
-        //    new Reply<bool>(false, errorCode, errorMessage).ThrowAnyError();
-        //}
-
         /// <summary>
         /// Wraps the specified method in a try-catch block and executes it.
         /// If an exception is thrown, it's encapsulated and returned in a Reply object.
