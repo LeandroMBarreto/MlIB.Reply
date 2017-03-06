@@ -51,11 +51,11 @@ namespace MlIB.Reply.Tests.Unit.Features
 
         //I: - msgPrefix null - WHEN HasError true
         //O: ReplyFullException
-        //O: [ERROR] | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |
+        //O: [] | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |
         [TestMethod]
         public void Reply_ThrowAnyError_msgPrefix_null_WHEN_HasError_true()
         {
-            var expectedOutput = "[ERROR] | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |";
+            var expectedOutput = "[] | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |";
 
             var result = M.Reply.Error(5);
 
@@ -72,11 +72,11 @@ namespace MlIB.Reply.Tests.Unit.Features
 
         //I: - msgPrefix empty - WHEN HasError true
         //O: ReplyFullException
-        //O: [ERROR] | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |
+        //O: [] | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |
         [TestMethod]
         public void Reply_ThrowAnyError_msgPrefix_empty_WHEN_HasError_true()
         {
-            var expectedOutput = "[ERROR] | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |";
+            var expectedOutput = "[] | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |";
 
             var result = M.Reply.Error(5);
 
@@ -112,6 +112,31 @@ namespace MlIB.Reply.Tests.Unit.Features
                 Assert.AreEqual(expectedOutput, ex.Message, "WHY NOT EXPECTED MESSAGE??");
             }
         }
-        
+
+        //I: - msgPrefix ok - WHEN HasError true - HasException true
+        //O: ReplyFullException
+        //O: [msgPrefix] | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |
+        //O: InnerExpection exception
+        [TestMethod]
+        public void Reply_ThrowAnyError_msgPrefix_ok_WHEN_HasException_true()
+        {
+            var msgPrefix = "RANDOM MSG PREFIX";
+            var expectedOutput = string.Format("[{0}] | ErrorCodeID: n/a | ErrorCodeLabel: n/a | ErrorMessage: n/a |", msgPrefix);
+
+            var result = M.Reply.Exception<int>(Stubs.Common.EXCEPTION);
+
+            try
+            {
+                result.ThrowAnyError(msgPrefix);
+            }
+            catch (Exception ex)
+            {
+                Assert.IsInstanceOfType(ex, typeof(ReplyFullException), "WHY NOT EXPECTED EXCEPTION TYPE??");
+                Assert.AreEqual(expectedOutput, ex.Message, "WHY NOT EXPECTED MESSAGE??");
+
+                Assert.AreEqual(Stubs.Common.EXCEPTION, ex.InnerException, "FAIL InnerException");        //O: InnerExpection exception
+            }
+        }
+
     }
 }

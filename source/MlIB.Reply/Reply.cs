@@ -149,7 +149,7 @@ namespace MlIB
         {
             if (!HasError) return;
 
-            throw new ReplyFullException(msgPrefix, this.FullStatusMessage);
+            throw new ReplyFullException(this.FullStatusMessage, this.Exception, msgPrefix);
         }
     }
 }
