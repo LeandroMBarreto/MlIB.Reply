@@ -65,7 +65,7 @@ namespace M
             return new Reply<TReturn>(value, errorMsg);
         }
 
-        public static IReplyCode<TReturn> Error<TReturn>(Enum errorCode, TReturn value = default(TReturn))
+        public static IReplyCode<TReturn> CodeError<TReturn>(Enum errorCode, TReturn value = default(TReturn))
         {
             return new Reply<TReturn>(value, errorCode);
         }

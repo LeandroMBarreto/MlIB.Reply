@@ -5,10 +5,10 @@ using MlIB.Reply.Tests.Unit.Stubs;
 namespace MlIB.Reply.Tests.Unit.Features
 {
     [TestClass]
-    public class static_Reply_Error__errorCode_value
+    public class static_Reply_CodeError
     {
         // UNIT UNDER TEST:
-        //  public static IReplyCode<TReturn> Error<TReturn>(Enum errorCode, TReturn value = default(TReturn))
+        //  public static IReplyCode<TReturn> CodeError<TReturn>(Enum errorCode, TReturn value = default(TReturn))
 
 
         //I: - errorCode null - value default
@@ -19,11 +19,11 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O5: ErrorCodeLabel null
         //O6: value default
         [TestMethod]
-        public void static_Reply_Error_errorCode_null_value_default()
+        public void static_Reply_CodeError_errorCode_null_value_default()
         {
             Enum myEnum = null;
 
-            var result = M.Reply.Error<int>(myEnum);
+            var result = M.Reply.CodeError<int>(myEnum);
 
             //O1: HasError true
             Assert.IsTrue(result.HasError, "FAIL HasError");
@@ -52,11 +52,11 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O5: ErrorCodeLabel ok
         //O6: value default
         [TestMethod]
-        public void static_Reply_Error_errorCode_ok_value_default()
+        public void static_Reply_CodeError_errorCode_ok_value_default()
         {
             Enum myEnum = MyErrorEnum.ACCESS_DENIED;
 
-            var result = M.Reply.Error<float>(myEnum);
+            var result = M.Reply.CodeError<float>(myEnum);
 
             //O1: HasError true
             Assert.IsTrue(result.HasError, "FAIL HasError");
@@ -84,12 +84,12 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O4: ErrorCodeID null
         //O5: ErrorCodeLabel null
         [TestMethod]
-        public void static_Reply_Error_errorCode_null_value_ok()
+        public void static_Reply_CodeError_errorCode_null_value_ok()
         {
             int value = 5;
             Enum myEnum = null;
 
-            var result = M.Reply.Error<int>(myEnum, value);
+            var result = M.Reply.CodeError<int>(myEnum, value);
 
             //O1: HasError true
             Assert.IsTrue(result.HasError, "FAIL HasError");
@@ -118,12 +118,12 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O5: ErrorCodeLabel ok
         //O6: value ok
         [TestMethod]
-        public void static_Reply_Error_errorCode_ok_value_ok()
+        public void static_Reply_CodeError_errorCode_ok_value_ok()
         {
             int value = 5;
             Enum myEnum = MyErrorEnum.ACCESS_DENIED;
 
-            var result = M.Reply.Error<float>(myEnum, value);
+            var result = M.Reply.CodeError<float>(myEnum, value);
 
             //O1: HasError true
             Assert.IsTrue(result.HasError, "FAIL HasError");
