@@ -82,22 +82,24 @@ namespace M
 
         /// <summary>
         /// Wraps the specified method in a try-catch block and executes it.
-        /// If an exception is thrown, it's encapsulated and returned in a Reply object.
+        /// If an exception is thrown, it will be encapsulated and returned as error in an IReplyEx object.
         /// </summary>
-        /// <param name="method">The method to execute. ie: ()=>method(arg1, arg2, arg3, arg...)</param>
+        /// <param name="action">The void method to execute. ie: ()=>method(arg1, arg2, arg3, arg...)</param>
         /// <returns></returns>
-        //public static IReplyEx<Exception> From(Action method)
-        //{
-        //    try
-        //    {
-        //        method();
-        //        return new Reply<Exception>(null);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return new Reply<Exception>(ex, ex);
-        //    }
-        //}
+        public static IReplyEx<Exception> From(Action action)
+        {
+            if (action == null) throw new NullReferenceException("ERROR: CANNOT EXECUTE A NULL ACTION!!");
+
+            try
+            {
+                action();
+                return new Reply<Exception>(null);
+            }
+            catch (Exception ex)
+            {
+                return new Reply<Exception>(ex, ex);
+            }
+        }
         
         /// <summary>
         /// Wraps the specified method in a try-catch block and executes it.

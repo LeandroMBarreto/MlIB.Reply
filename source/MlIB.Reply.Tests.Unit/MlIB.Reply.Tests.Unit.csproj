@@ -65,6 +65,7 @@
     <Compile Include="Features\static_Reply_Exception.cs" />
     <Compile Include="Features\PENDING\static_Reply_Error_full.cs" />
     <Compile Include="Features\static_Reply_CodeError.cs" />
+    <Compile Include="Features\static_Reply_From__action.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stubs\Common.cs" />
     <Compile Include="Stubs\MyErrorEnum.cs" />
