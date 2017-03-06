@@ -63,7 +63,7 @@
     <Compile Include="Features\PENDING\static_Reply_Throw.cs" />
     <Compile Include="Features\PENDING\static_Reply_From.cs" />
     <Compile Include="Features\PENDING\Reply_ctor.cs" />
-    <Compile Include="Features\static_Reply_Error__errorMsg_value.cs" />
+    <Compile Include="Features\static_Reply_MsgError.cs" />
     <Compile Include="Features\PENDING\static_Reply_Error_exception.cs" />
     <Compile Include="Features\PENDING\static_Reply_Error_full.cs" />
     <Compile Include="Features\static_Reply_CodeError.cs" />

@@ -5,10 +5,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MlIB.Reply.Tests.Unit.Features
 {
     [TestClass]
-    public class static_Reply_Error__errorMsg_value
+    public class static_Reply_MsgError
     {
         // UNIT UNDER TEST:
-        // public static IReplyMsg<TReturn> Error<TReturn>(string errorMsg, TReturn value = default(TReturn))
+        // public static IReplyMsg<TReturn> MsgError<TReturn>(string errorMsg, TReturn value = default(TReturn))
 
 
         //I: - errorMsg null - value default
@@ -17,10 +17,10 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O3: HasErrorMessage false
         //O4: ErrorMessage null
         [TestMethod]
-        public void static_Reply_Error_errorMsg_null_value_default()
+        public void static_Reply_MsgError_errorMsg_null_value_default()
         {
             string nullMsg = null;
-            IReplyMsg<int> result = M.Reply.Error<int>(nullMsg);
+            IReplyMsg<int> result = M.Reply.MsgError<int>(nullMsg);
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");    //O1: HasError true
             Assert.IsFalse(result.HasErrorMessage, "WHY HAVE MSG??");        //O3: HasErrorMessage false
@@ -34,9 +34,9 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O3: HasErrorMessage true
         //O4: ErrorMessage empty
         [TestMethod]
-        public void static_Reply_Error_errorMsg_empty_value_default()
+        public void static_Reply_MsgError_errorMsg_empty_value_default()
         {
-            var result = M.Reply.Error<string>("");
+            var result = M.Reply.MsgError<string>("");
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");    //O1: HasError true
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");           //O3: HasErrorMessage true
@@ -50,9 +50,9 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O3: HasErrorMessage true
         //O4: ErrorMessage ok
         [TestMethod]
-        public void static_Reply_Error_errorMsg_ok_value_default()
+        public void static_Reply_MsgError_errorMsg_ok_value_default()
         {
-            var result = M.Reply.Error<int>(Stubs.Common.MSG_ErrorFound);
+            var result = M.Reply.MsgError<int>(Stubs.Common.MSG_ErrorFound);
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");       //O1: HasError true
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");      //O3: HasErrorMessage true
@@ -66,10 +66,10 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O3: HasErrorMessage false
         //O4: ErrorMessage null
         [TestMethod]
-        public void static_Reply_Error_errorMsg_null_value_ok()
+        public void static_Reply_MsgError_errorMsg_null_value_ok()
         {
             string nullMsg = null;
-            var result = M.Reply.Error(nullMsg, Stubs.Common.VAL_anyValue);
+            var result = M.Reply.MsgError(nullMsg, Stubs.Common.VAL_anyValue);
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");     //O1: HasError true
             Assert.IsFalse(result.HasErrorMessage, "WHY HAVE MSG??");        //O3: HasErrorMessage false
@@ -83,9 +83,9 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O3: HasErrorMessage true
         //O4: ErrorMessage empty
         [TestMethod]
-        public void static_Reply_Error_errorMsg_empty_value_ok()
+        public void static_Reply_MsgError_errorMsg_empty_value_ok()
         {
-            var result = M.Reply.Error("", Stubs.Common.VAL_anyValue);
+            var result = M.Reply.MsgError("", Stubs.Common.VAL_anyValue);
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");   //O1: HasError true
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");       //O3: HasErrorMessage true
@@ -99,9 +99,9 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O3: HasErrorMessage true
         //O4: ErrorMessage ok
         [TestMethod]
-        public void static_Reply_Error_errorMsg_ok_value_ok()
+        public void static_Reply_MsgError_errorMsg_ok_value_ok()
         {
-            var result = M.Reply.Error(Stubs.Common.MSG_ErrorFound, Stubs.Common.VAL_anyValue);
+            var result = M.Reply.MsgError(Stubs.Common.MSG_ErrorFound, Stubs.Common.VAL_anyValue);
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");     //O1: HasError true
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");          //O3: HasErrorMessage true
@@ -116,10 +116,10 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O4: ErrorMessage null
         //O5: HasException false
         [TestMethod]
-        public void static_Reply_Error_errorMsg_null_value_exception()
+        public void static_Reply_MsgError_errorMsg_null_value_exception()
         {
             string nullMsg = null;
-            var result = M.Reply.Error(nullMsg, Stubs.Common.EXCEPTION);
+            var result = M.Reply.MsgError(nullMsg, Stubs.Common.EXCEPTION);
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");        //O1: HasError true
             Assert.IsFalse(result.HasErrorMessage, "WHY HAVE MSG??");         //O3: HasErrorMessage false
@@ -137,9 +137,9 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O4: ErrorMessage empty
         //O5: HasException false
         [TestMethod]
-        public void static_Reply_Error_errorMsg_empty_value_exception()
+        public void static_Reply_MsgError_errorMsg_empty_value_exception()
         {
-            var result = M.Reply.Error("", Stubs.Common.EXCEPTION);
+            var result = M.Reply.MsgError("", Stubs.Common.EXCEPTION);
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");         //O1: HasError true
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");           //O3: HasErrorMessage true
@@ -157,9 +157,9 @@ namespace MlIB.Reply.Tests.Unit.Features
         //O4: ErrorMessage ok
         //O5: HasException false
         [TestMethod]
-        public void static_Reply_Error_errorMsg_ok_value_exception()
+        public void static_Reply_MsgError_errorMsg_ok_value_exception()
         {
-            var result = M.Reply.Error(Stubs.Common.MSG_ErrorFound, Stubs.Common.EXCEPTION);
+            var result = M.Reply.MsgError(Stubs.Common.MSG_ErrorFound, Stubs.Common.EXCEPTION);
 
             Assert.IsTrue(result.HasError, "WHY NO ERROR??");         //O1: HasError true
             Assert.IsTrue(result.HasErrorMessage, "WHY NO MSG??");          //O3: HasErrorMessage true
