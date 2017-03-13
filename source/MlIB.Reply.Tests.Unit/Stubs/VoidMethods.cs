@@ -21,12 +21,12 @@ namespace MlIB.Reply.Tests.Unit.Stubs
             throw EXCEPTION;
         }
 
-        public virtual void PlayCuteSong()
+        internal virtual void PlayCuteSong()
         {
             Console.WriteLine("Pretend this is a cute song.");
         }
 
-        public virtual void PrintLyrics(string lyrics, decimal fontSize)
+        internal virtual void PrintLyrics(string lyrics, decimal fontSize)
         {
             Console.WriteLine(
                 string.Format("Pretend this is an awesome lyrics: [{0}] ^{1}", lyrics, fontSize)
