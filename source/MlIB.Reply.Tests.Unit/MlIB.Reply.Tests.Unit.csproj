@@ -53,7 +53,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Features\PENDING\IReplyEx_ThrowCaughtException.cs" />
+    <Compile Include="Features\Reply_ThrowCaughtException.cs" />
     <Compile Include="Features\Reply_ThrowAnyError.cs">
       <SubType>Code</SubType>
     </Compile>

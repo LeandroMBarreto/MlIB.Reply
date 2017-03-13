@@ -147,9 +147,16 @@ namespace MlIB
         /// <param name="msgPrefix">An optional prefix to append to the exception message.</param>
         public void ThrowAnyError(string msgPrefix = "ERROR")
         {
-            if (!HasError) return;
+            if (HasError) throw new ReplyFullException(this.FullStatusMessage, this.Exception, msgPrefix);
+        }
 
-            throw new ReplyFullException(this.FullStatusMessage, this.Exception, msgPrefix);
+        /// <summary>
+        /// Does nothing when HasException is false.
+        /// When true, throws exactly the same exception from Exception property.
+        /// </summary>
+        public void ThrowCaughtException()
+        {
+            if (HasException) throw this.Exception;
         }
     }
 }
