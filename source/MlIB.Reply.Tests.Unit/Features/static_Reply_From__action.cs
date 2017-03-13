@@ -16,6 +16,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         [TestMethod]
         public void static_Reply_From_action_null()
         {
+            Exception assert = null;
             try
             {
                 M.Action action = null;
@@ -23,9 +24,11 @@ namespace MlIB.Reply.Tests.Unit.Features
             }
             catch (Exception ex)
             {
-                Assert.IsInstanceOfType(ex, typeof(NullReferenceException), "FAIL TYPE");
-                Assert.AreEqual("ERROR: CANNOT EXECUTE A NULL ACTION!!", ex.Message, "FAIL Message");
+                assert = ex;
             }
+
+            Assert.IsInstanceOfType(assert, typeof(NullReferenceException), "FAIL TYPE");
+            Assert.AreEqual("ERROR: CANNOT EXECUTE A NULL ACTION!!", assert.Message, "FAIL Message");
         }
 
         //I: action ok

@@ -110,6 +110,8 @@ namespace M
         /// <returns></returns>
         public static IReplyEx<TReturn> From<TReturn>(Func<TReturn> function)
         {
+            if (function == null) throw new NullReferenceException("ERROR: CANNOT EXECUTE A NULL FUNCTION!!");
+            
             try
             {
                 return new Reply<TReturn>(function());

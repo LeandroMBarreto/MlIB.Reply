@@ -59,15 +59,18 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             var result = M.Reply.Error(5);
 
+            Exception assert = null;
             try
             {
                 result.ThrowAnyError(null);
             }
             catch (Exception ex)
             {
-                Assert.IsInstanceOfType(ex, typeof(ReplyFullException), "WHY NOT EXPECTED EXCEPTION TYPE??");
-                Assert.AreEqual(expectedOutput, ex.Message, "WHY NOT EXPECTED MESSAGE??");
+                assert = ex;
             }
+
+            Assert.IsInstanceOfType(assert, typeof(ReplyFullException), "WHY NOT EXPECTED EXCEPTION TYPE??");
+            Assert.AreEqual(expectedOutput, assert.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
         //I: - msgPrefix empty - WHEN HasError true
@@ -80,15 +83,18 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             var result = M.Reply.Error(5);
 
+            Exception assert = null;
             try
             {
                 result.ThrowAnyError(string.Empty);
             }
             catch (Exception ex)
             {
-                Assert.IsInstanceOfType(ex, typeof(ReplyFullException), "WHY NOT EXPECTED EXCEPTION TYPE??");
-                Assert.AreEqual(expectedOutput, ex.Message, "WHY NOT EXPECTED MESSAGE??");
+                assert = ex;
             }
+
+            Assert.IsInstanceOfType(assert, typeof(ReplyFullException), "WHY NOT EXPECTED EXCEPTION TYPE??");
+            Assert.AreEqual(expectedOutput, assert.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
         //I: - msgPrefix ok - WHEN HasError true
@@ -102,15 +108,18 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             var result = M.Reply.Error(5);
 
+            Exception assert = null;
             try
             {
                 result.ThrowAnyError(msgPrefix);
             }
             catch (Exception ex)
             {
-                Assert.IsInstanceOfType(ex, typeof(ReplyFullException), "WHY NOT EXPECTED EXCEPTION TYPE??");
-                Assert.AreEqual(expectedOutput, ex.Message, "WHY NOT EXPECTED MESSAGE??");
+                assert = ex;
             }
+
+            Assert.IsInstanceOfType(assert, typeof(ReplyFullException), "WHY NOT EXPECTED EXCEPTION TYPE??");
+            Assert.AreEqual(expectedOutput, assert.Message, "WHY NOT EXPECTED MESSAGE??");
         }
 
         //I: - msgPrefix ok - WHEN HasError true - HasException true
@@ -125,17 +134,20 @@ namespace MlIB.Reply.Tests.Unit.Features
 
             var result = M.Reply.Exception<int>(Stubs.Common.EXCEPTION);
 
+            Exception assert = null;
             try
             {
                 result.ThrowAnyError(msgPrefix);
             }
             catch (Exception ex)
             {
-                Assert.IsInstanceOfType(ex, typeof(ReplyFullException), "WHY NOT EXPECTED EXCEPTION TYPE??");
-                Assert.AreEqual(expectedOutput, ex.Message, "WHY NOT EXPECTED MESSAGE??");
-
-                Assert.AreEqual(Stubs.Common.EXCEPTION, ex.InnerException, "FAIL InnerException");        //O: InnerExpection exception
+                assert = ex;
             }
+
+            Assert.IsInstanceOfType(assert, typeof(ReplyFullException), "WHY NOT EXPECTED EXCEPTION TYPE??");
+            Assert.AreEqual(expectedOutput, assert.Message, "WHY NOT EXPECTED MESSAGE??");
+
+            Assert.AreEqual(Stubs.Common.EXCEPTION, assert.InnerException, "FAIL InnerException");        //O: InnerExpection exception
         }
 
     }

@@ -15,6 +15,7 @@ namespace MlIB.Reply.Tests.Unit.Features
         [TestMethod]
         public void static_Reply_From_function_null()
         {
+            Exception assert = null;
             try
             {
                 M.Func<int> function = null;
@@ -22,9 +23,11 @@ namespace MlIB.Reply.Tests.Unit.Features
             }
             catch (Exception ex)
             {
-                Assert.IsInstanceOfType(ex, typeof(NullReferenceException), "FAIL TYPE");
-                Assert.AreEqual("ERROR: CANNOT EXECUTE A NULL FUNCTION!!", ex.Message, "FAIL Message");
+                assert = ex;
             }
+
+            Assert.IsInstanceOfType(assert, typeof(NullReferenceException), "FAIL TYPE");
+            Assert.AreEqual("ERROR: CANNOT EXECUTE A NULL FUNCTION!!", assert.Message, "FAIL Message");
         } 
 
         //I: - function ok
