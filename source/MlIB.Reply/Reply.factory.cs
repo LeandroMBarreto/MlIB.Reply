@@ -106,19 +106,19 @@ namespace M
         /// If an exception is thrown, it's encapsulated and returned in a Reply object.
         /// </summary>
         /// <typeparam name="TReturn">The type of the data returned by method</typeparam>
-        /// <param name="method">The method to execute. ie: ()=>method(arg1, arg2, arg3, arg...)</param>
+        /// <param name="function">The method to execute. ie: ()=>method(arg1, arg2, arg3, arg...)</param>
         /// <returns></returns>
-        //public static IReplyEx<TReturn> From<TReturn>(Func<TReturn> method)
-        //{
-        //    try
-        //    {
-        //        return new Reply<TReturn>(method());
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        return new Reply<TReturn>(default(TReturn), ex);
-        //    }
-        //}
+        public static IReplyEx<TReturn> From<TReturn>(Func<TReturn> function)
+        {
+            try
+            {
+                return new Reply<TReturn>(function());
+            }
+            catch (Exception ex)
+            {
+                return new Reply<TReturn>(default(TReturn), ex);
+            }
+        }
 
     }
 }

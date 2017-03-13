@@ -59,7 +59,7 @@
     </Compile>
     <Compile Include="Features\static_Reply_Error.cs" />
     <Compile Include="Features\static_Reply_NoError.cs" />
-    <Compile Include="Features\PENDING\static_Reply_From.cs" />
+    <Compile Include="Features\static_Reply_From__function.cs" />
     <Compile Include="Features\PENDING\Reply_ctor.cs" />
     <Compile Include="Features\static_Reply_MsgError.cs" />
     <Compile Include="Features\static_Reply_Exception.cs" />
@@ -68,6 +68,7 @@
     <Compile Include="Features\static_Reply_From__action.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stubs\Common.cs" />
+    <Compile Include="Stubs\FunctionMethods.cs" />
     <Compile Include="Stubs\MyErrorEnum.cs" />
     <Compile Include="Stubs\VoidMethods.cs" />
   </ItemGroup>
