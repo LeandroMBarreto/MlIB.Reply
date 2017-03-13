@@ -30,6 +30,7 @@ namespace MlIB.Reply.Tests.Unit.Features
 
         //I: action ok
         //O: HasError false
+        //O: HasException false
         //O: Value null
         //O: Exception null
         [TestMethod]
@@ -38,12 +39,14 @@ namespace MlIB.Reply.Tests.Unit.Features
             var result = M.Reply.From(() => Stubs.VoidMethods.PlayStaticSound());
 
             Assert.IsFalse(result.HasError, "FAIL HasError");
+            Assert.IsFalse(result.HasException, "FAIL HasException");
             Assert.IsNull(result.Value, "FAIL Value");
             Assert.IsNull(result.Exception, "FAIL Exception");
         }
 
         //I: action throwing
         //O: HasError true
+        //O: HasException true
         //O: Value exception
         //O: Exception exception
         [TestMethod]
@@ -52,6 +55,7 @@ namespace MlIB.Reply.Tests.Unit.Features
             var result = M.Reply.From(() => Stubs.VoidMethods.PlayInexistentSound());
 
             Assert.IsTrue(result.HasError, "FAIL HasError");
+            Assert.IsTrue(result.HasException, "FAIL HasException");
             Assert.AreSame(Stubs.VoidMethods.EXCEPTION, result.Value, "FAIL Value");
             Assert.AreSame(Stubs.VoidMethods.EXCEPTION, result.Exception, "FAIL Exception");
         }
